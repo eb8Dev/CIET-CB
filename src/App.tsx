@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Bot, User } from 'lucide-react';
 import io, { Socket } from 'socket.io-client';
-
 import CIETLogo from './assets/ciet-logo.svg';
 import TFILogo from './assets/TFI_LOGO_horizantal.png';
+import ReactMarkdown from 'react-markdown';
 
 const CATEGORY_QUERIES = {
   faculty: [
@@ -74,37 +74,48 @@ function App() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001');
+    console.log('Initializing socket connection...');
+    // const newSocket = io('http://localhost:3001');
+    const newSocket = io('http://192.168.31.80:3001');
     setSocket(newSocket);
 
-    // Only show welcome if socket doesn't echo it back
     newSocket.on('connect', () => {
+      console.log('Socket connected with id:', newSocket.id);
       const welcome: Message = {
-        id: Date.now().toString(),
+        id: Date.now().toString() + '-' + Math.random().toString(36).substr(2, 5),
         text: "👋 Welcome to Chalapathi Assistant! What's your name?",
         isBot: true,
         timestamp: new Date()
       };
       setMessages([welcome]);
       setStep('askName');
+      console.log('Welcome message sent, onboarding step set to askName');
     });
 
-
     newSocket.on('bot-response', (data: { response: string }) => {
+      console.log('Received bot-response:', data.response);
       sendBotMessage(data.response);
       setIsTyping(false);
+      console.log('Bot stopped typing');
     });
 
     newSocket.on('bot-typing', (typing: boolean) => {
+      console.log('Bot typing status:', typing);
       setIsTyping(typing);
     });
 
+    newSocket.on('disconnect', (reason) => {
+      console.log('Socket disconnected:', reason);
+    });
+
     return () => {
+      console.log('Cleaning up socket connection...');
       newSocket.close();
     };
   }, []);
 
   useEffect(() => {
+    console.log('Messages or typing state changed, scrolling to bottom.');
     scrollToBottom();
   }, [messages, isTyping]);
 
@@ -113,8 +124,9 @@ function App() {
   };
 
   const sendBotMessage = (text: string) => {
+    console.log('Sending bot message:', text);
     const botMessage: Message = {
-      id: Date.now().toString(),
+      id: Date.now().toString() + '-' + Math.random().toString(36).substr(2, 5),
       text,
       isBot: true,
       timestamp: new Date()
@@ -123,8 +135,9 @@ function App() {
   };
 
   const sendUserMessage = (text: string) => {
+    console.log('Sending user message:', text);
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: Date.now().toString() + '-' + Math.random().toString(36).substr(2, 5),
       text,
       isBot: false,
       timestamp: new Date()
@@ -137,27 +150,39 @@ function App() {
 
   const handleSubmit = () => {
     const trimmed = inputMessage.trim();
-    if (!trimmed) return;
+    console.log('handleSubmit called with input:', trimmed);
+    if (!trimmed) {
+      console.log('Empty input, ignoring submit.');
+      return;
+    }
 
     sendUserMessage(trimmed);
 
     if (step === 'askName') {
+      console.log('Onboarding step: askName');
       setUserName(trimmed);
       sendBotMessage(`Nice to meet you, ${trimmed}! What's your email address?`);
       setStep('askEmail');
+      console.log('User name set to:', trimmed, ', moving to askEmail step');
     } else if (step === 'askEmail') {
-      console.log(userEmail);
+      console.log('Onboarding step: askEmail');
       if (!isValidEmail(trimmed)) {
         sendBotMessage("❌ That doesn't look like a valid email. Please try again.");
+        console.log('Invalid email entered:', trimmed);
         return;
       }
       setUserEmail(trimmed);
       sendBotMessage(`You're all set, ${userName}. You can ask questions or click on a topic below.`);
       setStep('done');
+      console.log(`User email set to:', ${userEmail}, trimmed: ${trimmed} onboarding done`);
     } else {
+      console.log('Onboarding done, sending message to socket:', trimmed);
       if (socket) {
-        socket.emit('chat-message', { message: trimmed });
+        socket.emit('chat_message', { message: trimmed });
         setIsTyping(true);
+        console.log('Message emitted to socket and typing indicator set');
+      } else {
+        console.warn('Socket is null, cannot send message');
       }
     }
 
@@ -167,6 +192,7 @@ function App() {
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
+      console.log('Enter pressed, submitting message');
       handleSubmit();
     }
   };
@@ -205,7 +231,13 @@ function App() {
                     {msg.isBot ? <Bot className="w-5 h-5 text-white" /> : <User className="w-5 h-5 text-white" />}
                   </div>
                   <div className={`rounded-2xl px-4 py-3 ${msg.isBot ? 'bg-slate-100 text-slate-800' : 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'}`}>
-                    <p className="whitespace-pre-wrap">{msg.text}</p>
+                    {/* <p className="whitespace-pre-wrap">{msg.text}</p> */}
+                    <div className="prose prose-sm max-w-none text-slate-800">
+                      <ReactMarkdown>
+                        {msg.text}
+                      </ReactMarkdown>
+                    </div>
+
                     <p className={`text-xs mt-2 ${msg.isBot ? 'text-slate-400' : 'text-blue-100'}`}>{formatTime(msg.timestamp)}</p>
                   </div>
                 </div>
@@ -241,10 +273,12 @@ function App() {
                     key={cat}
                     onClick={() => {
                       const example = CATEGORY_QUERIES[cat as keyof typeof CATEGORY_QUERIES][0];
+                      console.log(`Category button clicked: ${cat}, example query: "${example}"`);
                       sendUserMessage(example);
                       if (socket) {
-                        socket.emit('chat-message', { message: example });
+                        socket.emit('chat_message', { message: example });
                         setIsTyping(true);
+                        console.log('Emitted category example query to socket and set typing to true');
                       }
                     }}
                     className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm hover:bg-blue-200 transition"
@@ -263,13 +297,19 @@ function App() {
                 <div className="relative">
                   <textarea
                     value={inputMessage}
-                    onChange={(e) => setInputMessage(e.target.value)}
+                    onChange={(e) => {
+                      setInputMessage(e.target.value);
+                      console.log('Input message changed:', e.target.value);
+                    }}
                     onKeyPress={handleKeyPress}
                     placeholder={step === 'askName' ? 'Enter your name...' : step === 'askEmail' ? 'Enter your email...' : 'Ask your question...'}
                     className="w-full px-4 py-3 pr-12 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none min-h-[50px]"
                   />
                   <button
-                    onClick={handleSubmit}
+                    onClick={() => {
+                      console.log('Send button clicked');
+                      handleSubmit();
+                    }}
                     className="absolute right-2 bottom-2 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 flex items-center justify-center"
                   >
                     <Send className="w-4 h-4" />

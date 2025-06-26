@@ -1,0 +1,1855 @@
+2025-06-25 01:11:18,138 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:11:19,088 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:11:20,123 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:11:20,126 - INFO - User Query: does hostels have ac?
+2025-06-25 01:11:20,126 - INFO - Selected Tables: ['girlshostel_structure', 'boyshostel_structure']
+2025-06-25 01:11:20,126 - INFO - Generated SQL: SELECT
+    ghs.Hostel_Name AS Girls_Hostel_Name, ghs.AC AS Girls_Hostel_AC,
+    bhs.Hostel_Name AS Boys_Hostel_Name, bhs.AC AS Boys_Hostel_AC
+FROM
+    girlshostel_structure ghs
+CROSS JOIN
+    boyshostel_structure bhs
+2025-06-25 01:11:20,140 - INFO - Result: In response to your query regarding the availability of air conditioning (AC) facilities in the hostels at Chalapathi Institute of Engineering and Technology (CIET), the following information is provided:
+
+- **Girls Hostel-1 (Big)**: Does not have AC facilities.
+- **Girls Hostel-2**: Does not have AC facilities.
+- **Boys Hostel-1st Year**: Does not have AC facilities.
+- **Boys Hostel-2nd Year**: Does not have AC facilities.
+- **Boys Hostel-3rd Year**: Does not have AC facilities.
+
+We appreciate your interest in the facilities at CIET and hope this information is helpful. Should you have any further inquiries, please do not hesitate to ask.
+2025-06-25 01:12:15,873 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:12:16,692 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:12:17,960 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:12:17,962 - INFO - User Query: how many lab technicians are there?
+2025-06-25 01:12:17,962 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:12:17,962 - INFO - Generated SQL: SELECT COUNT(*) FROM lab_infrastructure WHERE DEPARTMENT = 'Lab Technicians';
+2025-06-25 01:12:17,962 - INFO - Result: Based on the available data, there are currently no lab technicians recorded in the system at Chalapathi Institute of Engineering and Technology. If you require further assistance or have any other queries, please feel free to ask.
+2025-06-25 01:13:07,392 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:13:07,912 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:13:07,921 - INFO - User Query: names of lab technicians
+2025-06-25 01:13:07,921 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:13:07,921 - INFO - Generated SQL: SELECT COUNT(*) AS number_of_lab_technicians, NAME
+FROM lab_infrastructure
+WHERE DEPARTMENT = 'Lab Technicians';
+2025-06-25 01:13:07,921 - INFO - Result: \u274c SQL execution error: no such column: NAME
+2025-06-25 01:13:39,471 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:13:39,879 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:13:39,882 - INFO - User Query: who are lab technicians
+2025-06-25 01:13:39,882 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:13:39,882 - INFO - Generated SQL: SELECT * FROM lab_infrastructure WHERE DEPARTMENT = 'lab technicians' OR SUBJECT/COURSE = 'lab technicians'
+2025-06-25 01:13:39,882 - INFO - Result: \u274c SQL execution error: no such column: SUBJECT
+2025-06-25 01:21:06,653 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:21:07,063 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:21:08,128 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:21:08,130 - INFO - User Query: how many lab technicians are there?
+2025-06-25 01:21:08,130 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:21:08,130 - INFO - Generated SQL: SELECT COUNT(*) FROM lab_infrastructure WHERE DEPARTMENT = 'lab technicians';
+2025-06-25 01:21:08,130 - INFO - Result: Based on the available data, there are currently no lab technicians recorded in the system at Chalapathi Institute of Engineering and Technology. If you require further assistance or have any other queries, please do not hesitate to ask.
+2025-06-25 01:24:25,653 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:24:26,049 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:24:26,879 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:24:26,883 - INFO - User Query: Refine to count distinct technician names from the TECHNICIAN(S) column.
+2025-06-25 01:24:26,883 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 01:24:26,883 - INFO - Generated SQL: SELECT COUNT(DISTINCT Faculty_Name) FROM faculty_data WHERE Designation = 'TECHNICIAN(S)'
+2025-06-25 01:24:26,883 - INFO - Result: Based on the provided SQL query results, there are currently no distinct technician names recorded in the TECHNICIAN(S) column of the database at Chalapathi Institute of Engineering and Technology. The count of distinct technician names is zero.
+
+If you require further assistance or have any other queries, please feel free to ask. We are committed to providing accurate and timely information to support the needs of our institution.
+2025-06-25 01:25:25,816 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:25:26,225 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:25:26,228 - INFO - User Query: Refine to count distinct technician names from the TECHNICIAN(S) column from lab_infrastructure table
+2025-06-25 01:25:26,228 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:25:26,228 - INFO - Generated SQL: SELECT COUNT(DISTINCT TECHNICIAN(S)) FROM lab_infrastructure
+2025-06-25 01:25:26,228 - INFO - Result: \u274c SQL execution error: no such column: S
+2025-06-25 01:26:12,726 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:26:14,176 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:26:14,180 - INFO - User Query: exit
+2025-06-25 01:26:14,180 - INFO - Selected Tables: ['chalapathi_institute_info']
+2025-06-25 01:26:14,180 - INFO - Generated SQL: SELECT COUNT(DISTINCT TECHNICIAN(S)) FROM chalapathi_institute_info
+2025-06-25 01:26:14,180 - INFO - Result: \u274c SQL execution error: no such column: S
+2025-06-25 01:26:29,766 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:26:30,167 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:26:31,138 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:26:31,141 - INFO - User Query: list all lab technicians
+2025-06-25 01:26:31,141 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-25 01:26:31,141 - INFO - Generated SQL: SELECT "TECHNICIAN(S)" FROM lab_infrastructure
+2025-06-25 01:26:31,141 - INFO - Result: Based on the information retrieved from the database, the following are the lab technicians at Chalapathi Institute of Engineering and Technology:
+
+1. Mrs. V Venu Babu
+2. Mrs. K Tejaswini
+3. Mrs. M Mutyalarani
+
+Please note that some entries in the database were not filled, hence the absence of additional names in this list. If you require further assistance or have any other queries, please do not hesitate to ask.
+2025-06-25 01:27:39,529 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:27:39,911 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:27:42,087 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:27:42,091 - INFO - User Query: who is rokesh?
+2025-06-25 01:27:42,091 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 01:27:42,091 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Faculty_Name = 'rokesh';
+2025-06-25 01:27:42,091 - INFO - Result: In response to your inquiry regarding "rokesh," I regret to inform you that no matching data was found in our records. If you have any additional information or alternative spellings that might assist in the search, please do not hesitate to provide them. We are committed to assisting you to the best of our abilities.
+2025-06-25 01:27:42,556 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:27:43,151 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:27:43,155 - INFO - User Query: who is rokesh?
+2025-06-25 01:27:43,155 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 01:27:43,155 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE LOWER(Faculty_Name) LIKE LOWER('%rokesh%');
+2025-06-25 01:27:43,155 - INFO - Result: Based on the information available, Dr. Y. Rokesh Kumar is an Associate Professor in the Department of Computer Science and Engineering (CSE) at Chalapathi Institute of Engineering and Technology (CIET). He holds an M.Tech and a Ph.D. degree.
+2025-06-25 01:28:40,024 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:28:40,743 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:28:41,492 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:28:41,496 - INFO - User Query: how many sstudents are joining to college this year?
+2025-06-25 01:28:41,496 - INFO - Selected Tables: ['intake_capacity']
+2025-06-25 01:28:41,496 - INFO - Generated SQL: SELECT SUM("Intake_Capacity/No.of_Seats") AS "Total Students Joining"
+FROM intake_capacity
+WHERE "Academic_Year" = 'this year';
+2025-06-25 01:28:41,496 - INFO - Result: Dear User,
+
+At present, the data regarding the total number of students joining Chalapathi Institute of Engineering and Technology (CIET) this year is not available. We kindly request you to check back later or contact the admissions office for the most accurate and up-to-date information.
+
+Thank you for your understanding and for your interest in CIET.
+
+Best regards,
+[Your Name]
+[Your Position]
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 01:29:54,573 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:29:55,023 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:29:55,026 - INFO - User Query: how many students are joining to college in 2025?
+2025-06-25 01:29:55,026 - INFO - Selected Tables: ['intake_capacity']
+2025-06-25 01:29:55,026 - INFO - Generated SQL: SELECT SUM(Intake_Capacity) AS Total_Students FROM intake_capacity WHERE Academic_Year = '2025'
+2025-06-25 01:29:55,026 - INFO - Result: \u274c SQL execution error: no such column: Intake_Capacity
+2025-06-25 01:30:30,034 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:30:31,304 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:30:31,309 - INFO - User Query: how many students are joining in the year 2025?
+2025-06-25 01:30:31,309 - INFO - Selected Tables: ['intake_capacity']
+2025-06-25 01:30:31,309 - INFO - Generated SQL: SELECT SUM(Intake_Capacity) AS Total_Students_Joining_2025
+FROM intake_capacity
+WHERE Academic_Year = '2025'
+2025-06-25 01:30:31,309 - INFO - Result: \u274c SQL execution error: no such column: Intake_Capacity
+2025-06-25 01:32:01,325 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:32:01,779 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:32:02,339 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:32:02,341 - INFO - User Query: I am at market and now time is 08:00 when's the next bus ?
+2025-06-25 01:32:02,341 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 01:32:02,341 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'market' AND Time > '08:00' ORDER BY Time ASC LIMIT 1
+2025-06-25 01:32:02,341 - INFO - Result: I apologize, but it appears that there is no bus schedule data available for the current time of 08:00. No matching data was found in the records. I recommend checking back later or contacting the transportation department for further assistance.
+2025-06-25 01:32:04,112 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:32:10,734 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 01:32:10,738 - INFO - User Query: I am at market and now time is 08:00 when's the next bus ?
+2025-06-25 01:32:10,739 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 01:32:10,739 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop LIKE '%market%' AND Time > '08:00' ORDER BY Time ASC LIMIT 1
+2025-06-25 01:32:10,739 - INFO - Result: Good morning,
+
+The next bus from Guntur Market is scheduled to depart at 08:15 AM. The bus number is 9 and will be driven by Mr. B. Singaiah.
+
+Thank you.
+2025-06-25 20:26:22,809 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:26:54,131 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:26:54,589 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:26:56,186 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:26:56,190 - INFO - User Query: explain me the fee structure
+2025-06-25 20:26:56,190 - INFO - Selected Tables: ['fee_structure']
+2025-06-25 20:26:56,190 - INFO - Generated SQL: SELECT * FROM fee_structure
+2025-06-25 20:26:56,190 - INFO - Result: Certainly! Below is the fee structure for various specializations at Chalapathi Institute of Engineering and Technology (CIET):
+
+| Specialization                              | Convener Quota (\u20b9) | Management Quota (\u20b9) |
+|---------------------------------------------|---------------------|-----------------------|
+| Computer Science and Engineering (CSE)       | 43,000              | 1,29,000              |
+| Electronics and Communication Engineering (ECE) | 43,000              | 65,000                |
+| Computer Science & IT (CSIT)                | 43,000              | 1,01,000              |
+| Data Science (CDS)                         | 43,000              | 90,000                |
+| Artificial Intelligence (CAI)               | 43,000              | 90,000
+2025-06-25 20:27:31,582 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:27:32,119 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:27:33,140 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:27:33,145 - INFO - User Query: how many companies have seated in placements?
+2025-06-25 20:27:33,145 - INFO - Selected Tables: ['placement']
+2025-06-25 20:27:33,145 - INFO - Generated SQL: SELECT COUNT(DISTINCT COMPANY) FROM placement WHERE DEPARTMENT = 'seated';
+2025-06-25 20:27:33,145 - INFO - Result: Based on the available data, there are currently no companies seated in placements at Chalapathi Institute of Engineering and Technology (CIET). We are continually working to expand our placement opportunities for students. For the most up-to-date information, please contact the CIET Placement Cell.
+2025-06-25 20:28:06,851 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:28:07,294 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:28:08,788 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:28:08,793 - INFO - User Query: in how many different comapnies students have placed
+2025-06-25 20:28:08,793 - INFO - Selected Tables: ['placement']
+2025-06-25 20:28:08,793 - INFO - Generated SQL: SELECT COUNT(DISTINCT COMPANY)
+FROM placement
+2025-06-25 20:28:08,793 - INFO - Result: At Chalapathi Institute of Engineering and Technology, our students have secured placements in a total of 21 distinct companies. We are proud of our students' achievements and the diverse opportunities they have accessed.
+2025-06-25 20:29:01,286 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:01,846 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:03,360 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:03,362 - INFO - User Query: what are nba accredited programs offered by college?
+2025-06-25 20:29:03,362 - INFO - Selected Tables: ['chalapathi_institute_info']
+2025-06-25 20:29:03,362 - INFO - Generated SQL: SELECT college_name, nba_accredited_programs
+FROM chalapathi_institute_info
+WHERE nba_accredited_programs IS NOT NULL;
+2025-06-25 20:29:03,362 - INFO - Result: The National Board of Accreditation (NBA) accredited programs offered by Chalapathi Institute of Engineering and Technology (CIET) are as follows:
+
+- Computer Science and Engineering (CSE)
+- Electronics and Communication Engineering (ECE)
+- Electrical and Electronics Engineering (EEE)
+- Civil Engineering (up to Academic Year 2024-25)
+
+These programs have been accredited by the NBA, ensuring that they meet the highest standards of quality and excellence in engineering education.
+2025-06-25 20:29:38,227 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:39,264 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:50,756 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:29:50,758 - INFO - User Query: I wanna pursue mtech in this college, what are available progams
+2025-06-25 20:29:50,759 - INFO - Selected Tables: ['chalapathi_institute_info']
+2025-06-25 20:29:50,759 - INFO - Generated SQL: SELECT postgraduate_programs FROM chalapathi_institute_info WHERE postgraduate_programs LIKE '%MTech%'
+2025-06-25 20:29:50,759 - INFO - Result: Dear Prospective Student,
+
+Thank you for your interest in pursuing an MTech program at Chalapathi Institute of Engineering and Technology (CIET). After reviewing our current offerings, I regret to inform you that we do not have any MTech programs available at this time.
+
+We appreciate your interest in our institution and encourage you to check back in the future for updates on our program offerings. Should you have any other inquiries, please do not hesitate to ask.
+
+Best Regards,
+[Your Name]
+Professional Assistant, CIET
+2025-06-25 20:30:13,122 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:30:13,585 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:30:14,694 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:30:14,699 - INFO - User Query: what are all the postgraduate progams offered by this college?
+2025-06-25 20:30:14,700 - INFO - Selected Tables: ['chalapathi_institute_info']
+2025-06-25 20:30:14,700 - INFO - Generated SQL: SELECT postgraduate_programs FROM chalapathi_institute_info WHERE college_name = 'Chalapathi Institute of Engineering and Technology'
+2025-06-25 20:30:14,700 - INFO - Result: The Chalapathi Institute of Engineering and Technology offers the following postgraduate program:
+
+- Master of Technology in Computer Science and Engineering, specializing in VLSI & Embedded Systems Design (M.Tech in CSE, VLSI & Embedded Systems Design)
+
+For further details or inquiries, please contact the admissions office at Chalapathi Institute of Engineering and Technology.
+2025-06-25 20:43:13,259 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:13,932 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:15,648 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:15,653 - INFO - User Query: which bus to take to reach college if I am from Kaza?
+2025-06-25 20:43:15,653 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:43:15,653 - INFO - Generated SQL: SELECT s1.Bus_No, s1.Driver_Name, s1.Time
+FROM structured_transport s1
+JOIN structured_transport s2 ON s1.Bus_No = s2.Bus_No
+WHERE s1.Route_Stop = 'Kaza' AND s2.Route_Stop = 'college';
+2025-06-25 20:43:15,653 - INFO - Result: Dear User,
+
+I regret to inform you that no matching data was found in our records regarding bus routes from Kaza to Chalapathi Institute of Engineering and Technology (CIET). We apologize for any inconvenience this may cause.
+
+For the most accurate and up-to-date information, I would recommend contacting our administrative office or checking local transportation services directly. They may be able to provide you with the assistance you need.
+
+Thank you for your understanding.
+
+Best regards,
+[Your Name]
+Professional Assistant
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 20:43:16,672 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:20,308 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:20,312 - INFO - User Query: which bus to take to reach college if I am from Kaza?
+2025-06-25 20:43:20,312 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:43:20,312 - INFO - Generated SQL: SELECT s1.Bus_No, s1.Driver_Name, s1.Time
+FROM structured_transport s1
+JOIN structured_transport s2 ON s1.Bus_No = s2.Bus_No
+WHERE LOWER(s1.Route_Stop) LIKE '%kaza%'
+AND LOWER(s2.Route_Stop) LIKE '%college%';
+2025-06-25 20:43:20,312 - INFO - Result: Dear User,
+
+Thank you for your inquiry regarding bus routes to Chalapathi Institute of Engineering and Technology (CIET) from Kaza. After consulting our records, we regret to inform you that no matching data was found regarding bus services from Kaza to our institution.
+
+We recommend checking with local bus services or transportation authorities for the most accurate and up-to-date information. Alternatively, you may consider reaching out to our administrative office for further assistance.
+
+We apologize for any inconvenience this may cause and appreciate your understanding.
+
+Best regards,
+
+[Your Name]
+[Your Position]
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 20:43:21,168 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:22,253 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:22,254 - INFO - User Query: which bus to take to reach college if I am from Kaza?
+2025-06-25 20:43:22,255 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:43:22,255 - INFO - Generated SQL: SELECT s1.Bus_No, s1.Driver_Name, s1.Time
+FROM structured_transport s1
+JOIN structured_transport s2 ON s1.Bus_No = s2.Bus_No
+WHERE LOWER(s1.Route_Stop) LIKE '%kaza%'
+AND LOWER(s2.Route_Stop) LIKE '%college%';
+2025-06-25 20:43:22,255 - INFO - Result: Dear User,
+
+Thank you for your inquiry regarding transportation to Chalapathi Institute of Engineering and Technology (CIET) from Kaza. Unfortunately, no matching data was found in our records regarding bus routes from Kaza to our institution.
+
+We apologize for any inconvenience this may cause. For the most accurate and up-to-date information, we recommend contacting your local bus station or a reliable transportation service. Alternatively, you may reach out to our administrative office for further assistance.
+
+We appreciate your understanding and look forward to welcoming you to CIET.
+
+Best regards,
+[Your Name]
+Professional Assistant
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 20:43:51,102 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:51,653 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:53,258 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:43:53,260 - INFO - User Query: which bus should I take if I am from Kaza?
+2025-06-25 20:43:53,260 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:43:53,260 - INFO - Generated SQL: SELECT Bus_No, Driver_Name, Time
+FROM structured_transport
+WHERE Route_Stop = 'Kaza'
+AND Route_Stop IN (SELECT Route_Stop FROM structured_transport WHERE Route_Stop = 'College');
+2025-06-25 20:43:53,260 - INFO - Result: Dear User,
+
+Upon reviewing the records, it appears that no bus routes have been documented for the location you specified, Kaza. We apologize for any inconvenience this may cause. If you have any other queries or require further assistance, please do not hesitate to ask.
+
+Thank you for reaching out to Chalapathi Institute of Engineering and Technology (CIET).
+
+Best regards,
+[Your Name]
+[Your Position]
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 20:44:26,802 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:44:27,273 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:44:28,716 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:44:28,720 - INFO - User Query: which bus to take if I am from kaza?
+2025-06-25 20:44:28,720 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:44:28,721 - INFO - Generated SQL: SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'kaza'
+2025-06-25 20:44:28,721 - INFO - Result: Dear User,
+
+Thank you for your inquiry regarding bus routes from Kaza. After consulting our database, I regret to inform you that no matching data was found in our records. We apologize for any inconvenience this may cause.
+
+If you have any other questions or need further assistance, please do not hesitate to ask.
+
+Best regards,
+[Your Name]
+Chalapathi Institute of Engineering and Technology (CIET)
+2025-06-25 20:44:29,263 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:44:31,123 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:44:31,127 - INFO - User Query: which bus to take if I am from kaza?
+2025-06-25 20:44:31,127 - INFO - Selected Tables: ['structured_transport']
+2025-06-25 20:44:31,127 - INFO - Generated SQL: SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop LIKE '%' || LOWER('kaza') || '%'
+ORDER BY Time;
+2025-06-25 20:44:31,127 - INFO - Result: To travel from Kaza to Chalapathi Institute of Engineering and Technology, you may take the bus with the following details:
+
+- **Bus Number:** 2
+- **Driver Name:** Mr. SK Dastagiri
+- **Route Stop:** Kaza
+- **Departure Time:** 07:15 AM
+
+Please ensure to board the bus at the designated stop and time for a comfortable journey to the institute.
+2025-06-25 20:48:10,904 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:11,832 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:13,489 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:13,493 - INFO - User Query: pg programs
+2025-06-25 20:48:13,494 - INFO - Selected Tables: ['chalapathi_institute_info', 'fee_structure']
+2025-06-25 20:48:13,494 - INFO - Generated SQL: SELECT *
+FROM chalapathi_institute_info
+JOIN fee_structure ON chalapathi_institute_info.postgraduate_programs = fee_structure.Specialization
+WHERE chalapathi_institute_info.postgraduate_programs = 'pg programs';
+2025-06-25 20:48:13,494 - INFO - Result: I apologize, but no matching data was found in the records for the query "pg programs" at Chalapathi Institute of Engineering and Technology (CIET). If you have any other queries or need further assistance, please feel free to ask.
+2025-06-25 20:48:14,148 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:14,699 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:14,705 - INFO - User Query: pg programs
+2025-06-25 20:48:14,706 - INFO - Selected Tables: ['chalapathi_institute_info', 'fee_structure']
+2025-06-25 20:48:14,706 - INFO - Generated SQL: SELECT *
+FROM chalapathi_institute_info
+JOIN fee_structure ON LOWER(chalapathi_institute_info.postgraduate_programs) LIKE LOWER('%' || fee_structure.Specialization || '%')
+2025-06-25 20:48:14,706 - INFO - Result: I apologize, but no matching data was found in the records for the query "pg programs" at Chalapathi Institute of Engineering and Technology (CIET). If you have any other queries or need further assistance, please feel free to ask.
+2025-06-25 20:48:15,750 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:16,791 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:16,795 - INFO - User Query: pg programs
+2025-06-25 20:48:16,795 - INFO - Selected Tables: ['chalapathi_institute_info', 'fee_structure']
+2025-06-25 20:48:16,795 - INFO - Generated SQL: SELECT *
+FROM chalapathi_institute_info
+JOIN fee_structure ON LOWER(chalapathi_institute_info.postgraduate_programs) LIKE LOWER('%' || fee_structure.Specialization || '%')
+2025-06-25 20:48:16,795 - INFO - Result: I apologize, but no matching data was found in the records for the query "pg programs" at Chalapathi Institute of Engineering and Technology (CIET). If you have any other queries or need further assistance, please feel free to ask.
+2025-06-25 20:48:51,044 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:52,568 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:53,473 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:53,484 - INFO - User Query: intake capacity of cse is?
+2025-06-25 20:48:53,484 - INFO - Selected Tables: ['intake_capacity']
+2025-06-25 20:48:53,484 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats"
+FROM intake_capacity
+WHERE Department = 'cse'
+2025-06-25 20:48:53,484 - INFO - Result: I apologize, but no matching data was found in the records regarding the intake capacity of the Computer Science and Engineering (CSE) department. Please ensure that the query is accurate, or feel free to provide additional details for further assistance.
+2025-06-25 20:48:53,988 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:54,463 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:48:54,470 - INFO - User Query: intake capacity of cse is?
+2025-06-25 20:48:54,470 - INFO - Selected Tables: ['intake_capacity']
+2025-06-25 20:48:54,470 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats"
+FROM intake_capacity
+WHERE LOWER(Department) LIKE '%cse%'
+2025-06-25 20:48:54,470 - INFO - Result: The intake capacity for the Computer Science and Engineering (CSE) program at Chalapathi Institute of Engineering and Technology is 180 seats.
+2025-06-25 20:52:57,028 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:52:57,460 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:52:58,644 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:52:58,648 - INFO - User Query: how can I contact the office?
+2025-06-25 20:52:58,649 - INFO - Selected Tables: ['chalapathi_institute_info']
+2025-06-25 20:52:58,649 - INFO - Generated SQL: SELECT contact_phone, contact_mobile, contact_email, website FROM chalapathi_institute_info WHERE college_name = 'Chalapathi Institute'
+2025-06-25 20:52:58,649 - INFO - Result: I apologize, but no contact information for the office is available in our records at the moment. Please try again later or contact our administrative department for further assistance.
+2025-06-25 20:54:28,123 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:54:28,726 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:54:29,880 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:54:29,882 - INFO - User Query: how can I contact the office?
+2025-06-25 20:54:29,882 - INFO - Selected Tables: ['college_info', 'chalapathi_institute_info']
+2025-06-25 20:54:29,882 - INFO - Generated SQL: SELECT ci.contact_phone, ci.contact_mobile, ci.contact_email, ci.website
+FROM college_info ci
+UNION
+SELECT cii.contact_phone, cii.contact_mobile, cii.contact_email, cii.website
+FROM chalapathi_institute_info cii
+2025-06-25 20:54:29,882 - INFO - Result: To contact the office of Chalapathi Institute of Engineering and Technology, you may use the following details:
+
+- **Phone:** 0863 - 2524112, 2524113
+- **Mobile:** 8333800596, 8333800597
+- **Website:** [https://chalapathiengg.ac.in/](https://chalapathiengg.ac.in/)
+
+For any further assistance, please feel free to reach out using the above contact information.
+2025-06-25 20:59:52,219 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:59:52,614 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:59:53,143 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 20:59:53,147 - INFO - User Query: how many faculty are ther?
+2025-06-25 20:59:53,148 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 20:59:53,148 - INFO - Generated SQL: SELECT COUNT(*) FROM faculty_data
+2025-06-25 20:59:53,148 - INFO - Result: At Chalapathi Institute of Engineering and Technology, we have a total of 188 faculty members dedicated to providing quality education and support to our students.
+2025-06-25 21:00:15,483 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:00:16,003 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:00:16,007 - INFO - User Query: how many of them are phd scholars?
+2025-06-25 21:00:16,007 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 21:00:16,007 - INFO - Generated SQL: SELECT COUNT(*) FROM faculty_data;
+
+SELECT COUNT(*) FROM faculty_data WHERE Qualification = 'PhD';
+
+SELECT COUNT(*) FROM faculty_data WHERE Qualification = 'PhD';
+2025-06-25 21:00:16,008 - INFO - Result: \u274c SQL execution error: You can only execute one statement at a time.
+2025-06-25 21:09:12,609 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:09:13,496 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:09:32,125 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:09:32,127 - INFO - User Query: how many of them are phd scholars?
+2025-06-25 21:09:32,127 - INFO - Selected Tables: ['faculty_data']
+2025-06-25 21:09:32,127 - INFO - Generated SQL: SELECT COUNT(*) FROM faculty_data WHERE Qualification = 'Ph.D'
+2025-06-25 21:09:32,127 - INFO - Result: At Chalapathi Institute of Engineering and Technology, there are 15 faculty members who are PhD scholars.
+2025-06-25 21:11:56,171 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:11:56,637 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:11:57,576 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:11:57,580 - INFO - User Query: college email addresss
+2025-06-25 21:11:57,580 - INFO - Selected Tables: ['college_info']
+2025-06-25 21:11:57,580 - INFO - Generated SQL: SELECT contact_email FROM college_info
+2025-06-25 21:11:57,580 - INFO - Result: The official email address for Chalapathi Institute of Engineering and Technology is available for your correspondence. Should you wish to contact the institute, please use the provided email address for any inquiries or communications.
+2025-06-25 21:12:49,883 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:12:50,347 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:12:50,862 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-25 21:12:50,866 - INFO - User Query: whats the email address?
+2025-06-25 21:12:50,867 - INFO - Selected Tables: ['college_info']
+2025-06-25 21:12:50,867 - INFO - Generated SQL: SELECT contact_email FROM college_info
+2025-06-25 21:12:50,867 - INFO - Result: The official email address for Chalapathi Institute of Engineering and Technology is chalapathiengtech@yahoo.com. Should you require further assistance, please do not hesitate to ask.
+2025-06-26 20:25:02,801 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:03,224 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:07,177 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:07,260 - INFO - User Query: boys hostel details
+2025-06-26 20:25:07,260 - INFO - Selected Tables: ['boyshostel_structure']
+2025-06-26 20:25:07,261 - INFO - Generated SQL: SELECT * FROM boyshostel_structure;
+2025-06-26 20:25:07,261 - INFO - Result: Certainly! Here are the details of the boys' hostels at Chalapathi Institute of Engineering and Technology (CIET):
+
+1. **Hostel Name:** BOYS-1ST YEAR
+   - **Room Type:** Dormitory (LARGE)
+   - **Capacity per Room:** 8
+   - **Total Rooms:** 15
+   - **Annual Fee:** \u20b970,000
+   - **Facilities:**
+     - Wi-Fi: Yes
+     - Laundry: Yes
+     - AC: No
+     - Common Bathroom: Yes
+   - **Hostel Incharge:** Mr. T. Venkatesh, Assistant Professor (EEE)
+   - **Contact Number:** 9160695990
+   - **Academic Year:** 2025-2026
+
+2. **Hostel Name:** BOYS-2ND YEAR
+   -
+2025-06-26 20:25:27,925 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:29,123 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:30,175 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:30,178 - INFO - User Query: csm hod name
+2025-06-26 20:25:30,179 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 20:25:30,179 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Designation LIKE '%HOD%' AND Department = 'CSM';
+2025-06-26 20:25:30,179 - INFO - Result: I apologize, but no matching data was found in the records for the CSM HOD name. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 20:25:30,874 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:31,626 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:31,632 - INFO - User Query: csm hod name
+2025-06-26 20:25:31,632 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 20:25:31,632 - INFO - Generated SQL: SELECT *
+FROM faculty_data
+WHERE LOWER(Department) LIKE '%csm%'
+AND LOWER(Designation) LIKE '%hod%'
+2025-06-26 20:25:31,632 - INFO - Result: I apologize, but no matching data was found in the records for the "csm hod name" query. If you have any other questions or need further assistance, please feel free to ask.
+2025-06-26 20:25:33,784 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:36,285 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:25:36,289 - INFO - User Query: csm hod name
+2025-06-26 20:25:36,289 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 20:25:36,289 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE LOWER(Designation) LIKE '%hod%' AND LOWER(Department) LIKE '%csm%';
+2025-06-26 20:25:36,289 - INFO - Result: I apologize, but no matching data was found in the records for the CSM HOD name. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 20:32:36,631 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:32:37,688 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:32:40,703 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:32:40,707 - INFO - User Query: how many professors hold mtech?
+2025-06-26 20:32:40,707 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 20:32:40,707 - INFO - Generated SQL: SELECT COUNT(*)
+FROM faculty_data
+WHERE Qualification = 'M.Tech' AND Designation LIKE '%Professor%';
+2025-06-26 20:32:40,707 - INFO - Result: At Chalapathi Institute of Engineering and Technology, there are 106 professors who hold an M.Tech degree.
+2025-06-26 20:40:57,987 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:40:58,751 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:41:01,859 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:41:01,863 - INFO - User Query: whos the hod of csm department
+2025-06-26 20:41:01,863 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 20:41:01,863 - INFO - Generated SQL: SELECT Faculty_Name FROM faculty_data WHERE Department = 'CSM' AND Designation LIKE '%Head%' OR Designation LIKE '%HOD%'
+2025-06-26 20:41:01,863 - INFO - Result: The faculty members listed are:
+
+1. Dr. V Naga Gopi Raju
+2. Mrs. K Aruna Kumari
+3. Dr. A Balaji
+4. Dr. K Venkata Rama Rao
+5. Dr. P V Narendra Kumar
+6. Dr. A Radhakrishna Murthy
+7. Mr. J Bhargav
+
+To determine the Head of Department (HOD) for the Computer Science and Management (CSM) department, I recommend contacting the administrative office or checking the official CIET website for the most accurate and up-to-date information.
+2025-06-26 20:42:07,342 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:42:07,756 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:42:13,195 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 20:42:13,199 - INFO - User Query: explain me about lab infrastructure
+2025-06-26 20:42:13,199 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 20:42:13,199 - INFO - Generated SQL: SELECT * FROM lab_infrastructure;
+2025-06-26 20:42:13,199 - INFO - Result: Certainly! Below is a detailed overview of the lab infrastructure at Chalapathi Institute of Engineering and Technology (CIET), organized by department:
+
+### Computer Science & IT (CSIT)
+1. **IOT LAB**
+   - **Subject/Course:** INTERNET OF THINGS
+   - **Number of Systems:** 40
+   - **Academic Year:** 2025-2026
+
+2. **Data Engineering & Visualizations Lab**
+   - **Subject/Course:** DS, OS, MPMC, DAA, DBMS, JAVA, CN, IP
+   - **Number of Systems:** 26
+   - **Academic Year:** 2025-2026
+
+### Computer Science & DS (CDS)
+1. **IOT LAB**
+   - **Subject/Course:** INTERNET OF THINGS
+   - **Number of Systems:** 33
+   - **Academic
+2025-06-26 21:07:51,280 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:07:53,672 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:08:02,343 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:08:02,364 - INFO - User Query: I am at guntur market, at 8.00 am, what are next available buses?
+2025-06-26 21:08:02,364 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:08:02,364 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'GUNTUR MARKET' AND Time > '08:00:00' ORDER BY Time ASC LIMIT 1;
+2025-06-26 21:08:02,364 - INFO - Result: Good morning,
+
+Based on the available data, the next bus departing from Guntur Market after 8:00 AM is as follows:
+
+- **Bus No:** 9
+- **Driver Name:** Mr. B. Singaiah
+- **Route Stop:** Guntur Market
+- **Time:** 08:15 AM
+
+Please ensure to be at the stop on time for a comfortable journey. If you have any further questions or need additional assistance, feel free to ask.
+
+Thank you.
+2025-06-26 21:09:52,358 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:10:05,568 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:10:06,135 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:10:06,137 - INFO - User Query: i am at market, now time is 8.25, any next avaialble buses
+2025-06-26 21:10:06,137 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:10:06,137 - INFO - Generated SQL: SELECT *
+FROM structured_transport
+WHERE Route_Stop = 'MARKET'
+AND Time > '08:25:00'
+ORDER BY Time ASC;
+2025-06-26 21:10:06,137 - INFO - Result: I apologize, but there are no available buses scheduled at this time from your location. Please check back later or contact our transport department for further assistance.
+2025-06-26 21:10:33,039 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:10:37,920 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:10:37,924 - INFO - User Query: what if I am at market at 8.00 ?
+2025-06-26 21:10:37,924 - INFO - Selected Tables: ['structured_transport', 'college_info']
+2025-06-26 21:10:37,924 - INFO - Generated SQL: -- For the current time (8:25)
+SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'MARKET' AND Time > '08:25:00'
+ORDER BY Time ASC
+LIMIT 1;
+
+-- For 8:00
+SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'MARKET' AND Time > '08:00:00'
+ORDER BY Time ASC
+LIMIT 1;
+
+-- For 8:00 (same as above, just confirming)
+SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'MARKET' AND Time > '08:00:00'
+ORDER BY Time ASC
+LIMIT 1;
+2025-06-26 21:10:37,924 - INFO - Result: \u274c SQL execution error: You can only execute one statement at a time.
+2025-06-26 21:11:09,110 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:11:09,625 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:11:11,602 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:11:11,608 - INFO - User Query: i am at market, time is 8, which bus I can board?
+2025-06-26 21:11:11,608 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:11:11,609 - INFO - Generated SQL: SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'MARKET' AND Time = '08:00:00';
+2025-06-26 21:11:11,609 - INFO - Result: I'm sorry, but no bus schedules are available for the current time and location. Please check back later or contact the local transit authority for the most up-to-date information.
+2025-06-26 21:12:42,721 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:12:43,392 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:12:44,215 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:12:44,220 - INFO - User Query: I am at market, time is 8.00 which bus should I board?
+2025-06-26 21:12:44,220 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:12:44,220 - INFO - Generated SQL: SELECT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE Route_Stop = 'MARKET' AND Time >= '08:00:00'
+ORDER BY Time ASC
+LIMIT 1;
+2025-06-26 21:12:44,220 - INFO - Result: I'm sorry for any inconvenience, but it appears that no bus schedules are available for the specified time of 8:00 AM from your current location. I recommend checking back later or contacting the local transit authority for the most up-to-date information. If you have any other questions or need further assistance, please let me know.
+2025-06-26 21:14:22,598 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:14:32,757 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:14:33,383 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:14:33,387 - INFO - User Query: i am at market, time is 8.00, any next buses?
+2025-06-26 21:14:33,387 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:14:33,388 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'MARKET' AND Time > '08:00:00' ORDER BY Time ASC LIMIT 1;
+2025-06-26 21:14:33,388 - INFO - Result: I'm sorry, but there are no buses scheduled at 8:00 AM from your current location at the market. Please check back later for updated schedules or consider other means of transportation. If you need further assistance, feel free to ask.
+2025-06-26 21:16:24,061 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:24,528 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:25,215 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:25,217 - INFO - User Query: bus time for stop kaza?
+2025-06-26 21:16:25,217 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:16:25,217 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Time > '08:00:00' AND Route_Stop = 'KAZA'
+2025-06-26 21:16:25,217 - INFO - Result: I apologize, but no matching data was found in the records for the bus time at stop "Kaza". Please ensure that the stop name is spelled correctly or provide additional details if available. If you have any other questions or need further assistance, feel free to ask.
+2025-06-26 21:16:25,900 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:37,502 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:37,506 - INFO - User Query: bus time for stop kaza?
+2025-06-26 21:16:37,507 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:16:37,507 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Time > '08:00:00' AND Route_Stop LIKE '%kaza%' ORDER BY Time ASC;
+2025-06-26 21:16:37,507 - INFO - Result: I apologize, but no matching data was found in the records for the bus time at stop "Kaza". Please ensure that the stop name is spelled correctly or provide additional details if available. If you need further assistance, feel free to ask.
+2025-06-26 21:16:38,553 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:41,926 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:16:41,930 - INFO - User Query: bus time for stop kaza?
+2025-06-26 21:16:41,930 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:16:41,930 - INFO - Generated SQL: SELECT * FROM structured_transport
+WHERE Time > '08:00:00'
+AND Route_Stop LIKE '%KAZA%'
+ORDER BY Time ASC;
+2025-06-26 21:16:41,930 - INFO - Result: I apologize, but no matching data was found in the records for the bus time at stop "Kaza". Please ensure that the stop name is spelled correctly or provide additional details if available. If you need further assistance, feel free to ask.
+2025-06-26 21:17:39,441 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:17:40,369 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:17:43,830 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:17:43,852 - INFO - User Query: I am at market, time is 8.00 , whats the next bus
+2025-06-26 21:17:43,853 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:17:43,853 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'MARKET' AND Time > '08:00' ORDER BY Time ASC LIMIT 1;
+2025-06-26 21:17:43,853 - INFO - Result: Good morning,
+
+Based on the current time of 8:00 AM and your location at the market, the next available bus is as follows:
+
+- **Bus Number:** 9
+- **Driver Name:** Mr. B. Singaiah
+- **Route Stop:** Market
+- **Time:** 08:15 AM
+
+Please be at the bus stop promptly to ensure you do not miss the bus. If you have any further questions or need additional assistance, feel free to ask.
+
+Thank you.
+2025-06-26 21:31:26,025 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:31:26,853 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:31:28,617 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:31:28,621 - INFO - User Query: list all hods
+2025-06-26 21:31:28,622 - INFO - Selected Tables: ['girlshostel_structure', 'boyshostel_structure']
+2025-06-26 21:31:28,622 - INFO - Generated SQL: SELECT "Hostel_Incharge" AS "HOD"
+FROM girlshostel_structure
+UNION
+SELECT "Hostel_Incharge" AS "HOD"
+FROM boyshostel_structure
+2025-06-26 21:31:28,622 - INFO - Result: Here is the list of Heads of Departments (HODs) at Chalapathi Institute of Engineering and Technology:
+
+1. K. Vijaya Lakshmi, Assistant Professor (ECE)
+2. T. Venkatesh, Assistant Professor (EEE)
+2025-06-26 21:33:25,073 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:33:27,660 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:33:34,665 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:33:34,686 - INFO - User Query: fee structure
+2025-06-26 21:33:34,686 - INFO - Selected Tables: ['fee_structure']
+2025-06-26 21:33:34,686 - INFO - Generated SQL: SELECT * FROM fee_structure;
+2025-06-26 21:33:34,686 - INFO - Result: Certainly! Below is the fee structure for various specializations at Chalapathi Institute of Engineering and Technology (CIET):
+
+- **Computer Science and Engineering (CSE)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b91,29,000
+
+- **Electronics and Communication Engineering (ECE)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b965,000
+
+- **Computer Science & Information Technology (CSIT)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b91,01,000
+
+- **Data Science (CDS)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Artificial Intelligence (CAI)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **AI & Machine Learning (CSM)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Cyber Security (CSC)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Electrical & Electronics Engineering (EEE)**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b943,000
+
+- **Civil Engineering**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b943,000
+
+For further details or assistance, please feel free to contact the admissions office at Chalapathi Institute of Engineering and Technology.
+2025-06-26 21:38:34,702 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:38:35,418 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:39:09,600 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:39:09,602 - INFO - User Query: bus timings
+2025-06-26 21:39:09,602 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:39:09,602 - INFO - Generated SQL: SELECT * FROM structured_transport
+2025-06-26 21:39:09,602 - INFO - Result: Here are the bus timings for Chalapathi Institute of Engineering and Technology:
+
+**Bus No: 1A**
+- Driver Name: Mr. K. Pulla Naik
+  - Kamma Hostel: 08:20 AM
+  - R.T.O Office: 08:35 AM
+
+**Bus No: 1B**
+- Driver Name: Ms. Velangini
+  - Kamma Hostel: 08:20 AM
+  - Gardens: 08:25 AM
+
+**Bus No: 2**
+- Driver Name: Mr. S.K. Dastagiri
+  - Kaza: 07:15 AM
+  - Mangalagiri: 07:25 AM
+  - Naluvuru: 07:35 AM
+  - Nidamarru: 07:45 AM
+  - Kantheru: 08:00 AM
+  - Kopparavuru: 08:10 AM
+  - Venigandla: 08:20 AM
+  - Jonnlagadda: 08:35 AM
+  - Tathireddy Palem: 08:40 AM
+
+**Bus No: 3**
+- Driver Name: Mr. J. Ashok Kumar
+  - Stambalagaruvu: 08:00 AM
+  - Gujjangundla: 08:05 AM
+  - Current Office Road: 08:10 AM
+  - S.V.N Colony: 08:15 AM
+  - Navabharath Nagar: 08:20 AM
+  - Vidya Nagar: 08:22 AM
+  - Sai Baba Road: 08:25 AM
+  - Koritipadu: 08:27 AM
+  - Kalamandir: 08:30 AM
+  - Rama Building: 08:35 AM
+  - Medical Hostel: 08:38 AM
+  - Nagarallu: 08:40 AM
+  - Gorentla: 08:43 AM
+
+**Bus No: 5**
+- Driver Name: Mr. Lingaiah
+2025-06-26 21:39:28,928 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:39:35,739 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:39:37,897 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:39:37,902 - INFO - User Query: list of all hods
+2025-06-26 21:39:37,902 - INFO - Selected Tables: ['girlshostel_structure', 'boyshostel_structure']
+2025-06-26 21:39:37,902 - INFO - Generated SQL: SELECT Hostel_Incharge, Contact
+FROM girlshostel_structure
+UNION
+SELECT Hostel_Incharge, Contact
+FROM boyshostel_structure
+2025-06-26 21:39:37,902 - INFO - Result: Here is the list of Heads of Departments (HODs) at Chalapathi Institute of Engineering and Technology:
+
+1. K. Vijaya Lakshmi, Assistant Professor (ECE)
+   - Contact: 7382975431
+
+2. T. Venkatesh, Assistant Professor (EEE)
+   - Contact: 9160695990
+
+Please note that the contact information provided is for official communication purposes only.
+2025-06-26 21:40:14,767 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:19,639 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:22,462 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:22,470 - INFO - User Query: who is A balaji?
+2025-06-26 21:40:22,470 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 21:40:22,470 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Faculty_Name = 'A balaji';
+2025-06-26 21:40:22,470 - INFO - Result: Based on the database query, no records matching the name "A balaji" were found. It appears that there is no individual by that name in our current records. If you have any additional information or alternative spellings, please provide them so that I can assist you further.
+2025-06-26 21:40:30,586 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:31,861 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:32,581 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:40:32,598 - INFO - User Query: who is balaji?
+2025-06-26 21:40:32,598 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 21:40:32,598 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Faculty_Name LIKE '%Balaji%';
+2025-06-26 21:40:32,606 - INFO - Result: Dr. A. Balaji is a Professor and Head of the Department (HOD) of Computer Science and Engineering (CSE) at Chalapathi Institute of Engineering and Technology (CIET). He holds an M.E. and Ph.D. degree.
+2025-06-26 21:44:21,289 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:44:22,139 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:44:25,477 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:44:25,484 - INFO - User Query: list of the list of hod
+2025-06-26 21:44:25,485 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 21:44:25,485 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Designation LIKE '%HOD%' OR Designation LIKE '%Head of Department%';
+2025-06-26 21:44:25,485 - INFO - Result: Here is the list of Heads of Departments (HODs) at Chalapathi Institute of Engineering and Technology:
+
+1. **Dr V Naga Gopi Raju**
+   - Designation: Associate Professor and HOD
+   - Qualification: Ph.D
+   - Department: AI & CSM
+
+2. **Mrs K Aruna Kumari**
+   - Designation: Assistant Professor and HOD
+   - Qualification: M.Tech, Ph.D
+   - Department: CDS
+
+3. **Dr A Balaji**
+   - Designation: Professor and HOD
+   - Qualification: M.E, Ph.D
+   - Department: CSE
+
+4. **Dr K Venkata Rama Rao**
+   - Designation: Professor and HOD
+   - Qualification: M.Tech, Ph.D
+   - Department: ECE
+
+5. **Dr P V Narendra Kumar**
+   - Designation: Associate Professor and HOD
+   - Qualification: Ph.D
+   - Department: EEE
+
+6. **Dr A Radhakrishna Murthy**
+   - Designation: Professor and HOD
+   - Qualification: Ph.D
+   - Department: All 1st Year Departments
+
+7. **Mr J Bhargav**
+   - Designation: Asst. Professor and HOD
+   - Qualification: M.Tech
+   - Department: IT
+
+This list is presented for official use and public display on the college platform.
+2025-06-26 21:45:00,400 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:45:02,130 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:45:04,077 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:45:04,084 - INFO - User Query: list of all hod
+2025-06-26 21:45:04,084 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 21:45:04,084 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Designation = 'Head of Department';
+2025-06-26 21:45:04,084 - INFO - Result: I apologize, but it appears that there are no records of Heads of Departments (HODs) in the database at this time. Please ensure that the data has been entered correctly or contact the administrative office for further assistance.
+2025-06-26 21:46:07,836 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:46:08,472 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:46:29,892 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:46:29,896 - INFO - User Query: bus details
+2025-06-26 21:46:29,896 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 21:46:29,896 - INFO - Generated SQL: SELECT * FROM structured_transport
+2025-06-26 21:46:29,896 - INFO - Result: Here are the bus details for Chalapathi Institute of Engineering and Technology:
+
+1. **Bus No: 1A**
+   - **Driver Name:** Mr. K. Pulla Naik
+   - **Route Stops:**
+     - Kamma Hostel at 08:20 AM
+     - R.T.O Office at 08:35 AM
+
+2. **Bus No: 1B**
+   - **Driver Name:** Ms. Velangini
+   - **Route Stops:**
+     - Kamma Hostel at 08:20 AM
+     - Gardens at 08:25 AM
+
+3. **Bus No: 2**
+   - **Driver Name:** Mr. S.K. Dastagiri
+   - **Route Stops:**
+     - Kaza at 07:15 AM
+     - Mangalagiri at 07:25 AM
+     - Naluvuru at 07:35 AM
+     - Nidamarru at 07:45 AM
+     - Kantheru at 08:00 AM
+     - Kopparavuru at 08:10 AM
+     - Venigandla at 08:20 AM
+     - Jonnlagadda at 08:35 AM
+     - Tathireddy Palem at 08:39 AM
+
+4. **Bus No: 3**
+   - **Driver Name:** Mr. J. Ashok Kumar
+   - **Route Stops:**
+     - Stambalagaruvu at 08:00 AM
+     - Gujjangundla at 08:05 AM
+     - Current Office Road at 08:10 AM
+     - S.V.N Colony at 08:15 AM
+     - Navabharath Nagar at 08:20 AM
+     - Vidya Nagar at 08:22 AM
+     - Sai Baba Road at 08:25 AM
+     - Koritipadu at 08:27 AM
+     - Kalamandir at 08:30 AM
+     - Rama Building at 08:35 AM
+     - Medical Hostel at 08:38 AM
+     - Nagar
+2025-06-26 21:46:53,308 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:47:14,086 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:47:20,658 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:47:20,664 - INFO - User Query: about pacements
+2025-06-26 21:47:20,664 - INFO - Selected Tables: ['placement']
+2025-06-26 21:47:20,664 - INFO - Generated SQL: SELECT * FROM placement
+2025-06-26 21:47:20,664 - INFO - Result: Thank you for your query regarding placements at Chalapathi Institute of Engineering and Technology. Below is a comprehensive list of the placements for the year 2025, organized by department, student name, company, and year:
+
+### Computer Science and Engineering (CSE)
+1. **Venkata Vikas Bathula** - Accordian
+2. **Mandapati Vijaya Tejeswini** - Edu Tantr
+3. **Mallavarpu Susmitha** - Edu Tantr
+4. **Bonthagarla Manikanta Sai Teja** - Kodnest
+5. **Ummidi Nagalakshmi** - Kodnest
+6. **Pamu Hymasai** - Kodnest
+7. **Peetha Eswar Teja** - Learn Flu
+8. **Shaik Haseena** - Learn Flu
+9. **Eragadindla Lavanya** - Learn Flu
+10. **Annarapu Mounika** - Learn Flu
+11. **Bollapalli Naga Lakshmi** - Learn Flu
+12. **Davala Saimon** - Learn Flu
+13. **Gali Venkata Gopi** - Learn Flu
+14. **Garige Bhavani Pujitha** - Learn Flu
+15. **Gutha Venkata Narayana** - Learn Flu
+16. **Jetti Triloksai** - Learn Flu
+17. **Kalluri Ravi Kumar** - Learn Flu
+18. **Koppula Naga Jyothi** - Learn Flu
+19. **Kottapalli Brahmam** - Learn Flu
+20. **Kunduru Sravani** - Learn Flu
+21. **Mandapati Vijaya Tejaswini** - Learn Flu
+22. **Pulivarthi Sandhya** - Learn Flu
+23. **Rangu Padmini** - Learn Flu
+24. **Rangu Pavani** - Learn Flu
+25. **Nazma Shaik** - Learn Flu
+26. **Tupakula Safoora** - Learn Flu
+27. **Ummidi Nagalakshmi** - Learn Flu
+28. **Uppalapati Amrutha** - Learn Flu
+2
+2025-06-26 21:48:39,052 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:39,938 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:44,316 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:44,416 - INFO - User Query: hostel information
+2025-06-26 21:48:44,416 - INFO - Selected Tables: ['girlshostel_structure', 'boyshostel_structure']
+2025-06-26 21:48:44,416 - INFO - Generated SQL: SELECT * FROM girlshostel_structure
+UNION ALL
+SELECT * FROM boyshostel_structure
+2025-06-26 21:48:44,461 - INFO - Result: Certainly! Here is the hostel information for Chalapathi Institute of Engineering and Technology (CIET) for the academic year 2025-2026:
+
+1. **Hostel Name:** GIRLS HOSTEL-1(BIG)
+   - **Room Type:** Dormitory (LARGE)
+   - **Capacity per Room:** 8
+   - **Total Rooms:** 18
+   - **Annual Fee:** \u20b970,000
+   - **Facilities:**
+     - Wi-Fi: Yes
+     - Laundry: Yes
+     - AC: No
+     - Common Bathroom: Yes
+   - **Hostel Incharge:** K. Vijaya Lakshmi, Assistant Professor (ECE)
+   - **Contact:** 7382975431
+
+2. **Hostel Name:** GIRLS HOSTEL-2
+   - **Room Type:** Dormitory
+   - **Capacity per Room:** 6
+   - **Total Rooms:** 9
+   - **Annual Fee:** \u20b980,000
+   - **Facilities:**
+     - Wi-Fi: Yes
+     - Laundry: Yes
+     - AC: No
+     - Common Bathroom: Yes
+   - **Hostel Incharge:** K. Vijaya Lakshmi, Assistant Professor (ECE)
+   - **Contact:** 7382975431
+
+3. **Hostel Name:** BOYS-1ST YEAR
+   - **Room Type:** Dormitory (LARGE)
+   - **Capacity per Room:** 8
+   - **Total Rooms:** 15
+   - **Annual Fee:** \u20b970,000
+   - **Facilities:**
+     - Wi-Fi: Yes
+     - Laundry: Yes
+     - AC: No
+     - Common Bathroom: Yes
+   - **Hostel Incharge:** T. Venkatesh, Assistant Professor (EEE)
+   - **Contact:** 9160695990
+
+4. **Hostel Name:** BOYS-2ND YEAR
+   - **Room Type:** Dormitory
+   - **Capacity per Room:** 6
+   - **Total Rooms:** 10
+   - **Annual Fee:**
+2025-06-26 21:48:52,516 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:53,469 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:54,600 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:48:54,605 - INFO - User Query: number of seats
+2025-06-26 21:48:54,605 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:48:54,605 - INFO - Generated SQL: SELECT SUM("Intake_Capacity/No.of_Seats") AS "Total Number of Seats" FROM intake_capacity;
+2025-06-26 21:48:54,605 - INFO - Result: The total number of seats available at Chalapathi Institute of Engineering and Technology is 780.
+2025-06-26 21:49:17,135 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:18,105 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:21,908 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:21,914 - INFO - User Query: intake capacity for csm
+2025-06-26 21:49:21,915 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:49:21,915 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats" FROM intake_capacity WHERE Department = 'Computer Science and Management (CSM)' AND Academic_Year = '2025-2026'
+2025-06-26 21:49:21,915 - INFO - Result: I apologize, but no matching data was found in the records regarding the intake capacity for CSM at Chalapathi Institute of Engineering and Technology. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 21:49:26,671 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:27,243 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:27,247 - INFO - User Query: intake capacity for csm
+2025-06-26 21:49:27,247 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:49:27,247 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats"
+FROM intake_capacity
+WHERE LOWER(Department) LIKE '%csm%'
+2025-06-26 21:49:27,247 - INFO - Result: I apologize, but no matching data was found in the records regarding the intake capacity for CSM at Chalapathi Institute of Engineering and Technology. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 21:49:28,333 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:31,786 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:49:31,792 - INFO - User Query: intake capacity for csm
+2025-06-26 21:49:31,792 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:49:31,793 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats"
+FROM intake_capacity
+WHERE LOWER(Department) LIKE '%csm%'
+2025-06-26 21:49:31,793 - INFO - Result: I apologize, but no matching data was found in the records regarding the intake capacity for CSM at Chalapathi Institute of Engineering and Technology. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 21:52:54,381 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:52:56,998 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:52:58,148 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:52:58,152 - INFO - User Query: intake capasity of csm
+2025-06-26 21:52:58,153 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:52:58,153 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats" FROM intake_capacity WHERE Department = 'Artificial Intelligence & Machine Learning (CSM)' AND Academic_Year = '2025-2026'
+2025-06-26 21:52:58,153 - INFO - Result: The intake capacity for the Computer Science and Management (CSM) program at Chalapathi Institute of Engineering and Technology is 60 seats.
+2025-06-26 21:56:43,810 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:56:44,328 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:56:45,575 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:56:45,692 - INFO - User Query: intake capacity of csm?
+2025-06-26 21:56:45,692 - INFO - Selected Tables: ['intake_capacity']
+2025-06-26 21:56:45,693 - INFO - Generated SQL: SELECT "Intake_Capacity/No.of_Seats" FROM intake_capacity WHERE Department = 'Artificial Intelligence & Machine Learning (CSM)' AND Academic_Year = '2025-2026'
+2025-06-26 21:56:45,693 - INFO - Result: The intake capacity for the Artificial Intelligence & Machine Learning (CSM) department at Chalapathi Institute of Engineering and Technology for the academic year 2025-2026 is 60 seats.
+2025-06-26 21:57:15,831 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:17,383 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:18,478 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:18,497 - INFO - User Query: labs in csm
+2025-06-26 21:57:18,498 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 21:57:18,498 - INFO - Generated SQL: SELECT * FROM lab_infrastructure WHERE LAB_NAME LIKE '%csm%'
+2025-06-26 21:57:18,498 - INFO - Result: I apologize, but no matching data was found in the records for labs in CSM. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 21:57:19,414 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:19,433 - INFO - User Query: labs in csm
+2025-06-26 21:57:19,433 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 21:57:19,439 - INFO - Generated SQL: SELECT * FROM lab_infrastructure WHERE DEPARTMENT LIKE '%cs%' OR LAB_NAME LIKE '%cs%' OR SUBJECT/COURSE LIKE '%cs%' OR TECHNICIANS LIKE '%cs%';
+2025-06-26 21:57:19,439 - INFO - Result: \u274c SQL execution error: no such column: SUBJECT
+2025-06-26 21:57:44,156 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:44,693 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:49,297 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:57:49,303 - INFO - User Query: lab infrastructure for csm
+2025-06-26 21:57:49,304 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 21:57:49,304 - INFO - Generated SQL: SELECT * FROM lab_infrastructure WHERE DEPARTMENT = 'Computer Science & Engineering (CSE)'
+2025-06-26 21:57:49,304 - INFO - Result: Certainly! Here is the lab infrastructure for the Computer Science & Engineering (CSE) department at Chalapathi Institute of Engineering and Technology:
+
+1. **Java Lab**
+   - Subject/Course: Java
+   - Number of Systems: 60
+   - Academic Year: 2025-2026
+
+2. **Operating Systems Lab**
+   - Subject/Course: Operating Systems (OS)
+   - Number of Systems: 67
+   - Academic Year: 2025-2026
+
+3. **DBMS Lab**
+   - Subject/Course: Database Management System (DBMS)
+   - Number of Systems: 67
+   - Academic Year: 2025-2026
+
+4. **DAA Lab**
+   - Subject/Course: Design and Analysis of Algorithms (DAA)
+   - Number of Systems: 70
+   - Academic Year: 2025-2026
+
+5. **Java Programming Lab**
+   - Subject/Course: Java Programming
+   - Number of Systems: 39
+   - Academic Year: 2025-2026
+
+6. **Computer Networks & IP Lab**
+   - Subject/Course: Computer Networks & IP Lab
+   - Number of Systems: 66
+   - Academic Year: 2025-2026
+
+7. **R&D Lab**
+   - Subject/Course: Research & Development Laboratory
+   - Number of Systems: 37
+   - Academic Year: 2025-2026
+
+Please note that the technician details are currently not available. If you require further information or assistance, feel free to ask.
+2025-06-26 21:58:54,967 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:58:55,434 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:59:11,400 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:59:11,407 - INFO - User Query: fee structure
+2025-06-26 21:59:11,407 - INFO - Selected Tables: ['fee_structure']
+2025-06-26 21:59:11,407 - INFO - Generated SQL: SELECT * FROM fee_structure;
+2025-06-26 21:59:11,407 - INFO - Result: Certainly! Below is the fee structure for various specializations at Chalapathi Institute of Engineering and Technology (CIET):
+
+1. **Computer Science and Engineering (CSE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b91,29,000
+
+2. **Electronics and Communication Engineering (ECE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b965,000
+
+3. **Computer Science & Information Technology (CSIT)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b91,01,000
+
+4. **Data Science (CDS)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+5. **Artificial Intelligence (CAI)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+6. **AI & Machine Learning (CSM)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+7. **Cyber Security (CSC)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+8. **Electrical & Electronics Engineering (EEE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b943,000
+
+9. **Civil Engineering**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b943,000
+
+For further details or inquiries, please contact the admissions office at Chalapathi Institute of Engineering and Technology.
+2025-06-26 21:59:57,031 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:59:58,058 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:59:58,553 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 21:59:59,682 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:11,208 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:11,214 - INFO - User Query: fee structure
+2025-06-26 22:00:11,214 - INFO - Selected Tables: ['fee_structure']
+2025-06-26 22:00:11,214 - INFO - Generated SQL: SELECT * FROM fee_structure;
+2025-06-26 22:00:11,214 - INFO - Result: Here is the fee structure for various specializations at Chalapathi Institute of Engineering and Technology:
+
+1. **Computer Science and Engineering (CSE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b91,29,000
+
+2. **Electronics and Communication Engineering (ECE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b965,000
+
+3. **Computer Science & Information Technology (CSIT)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b91,01,000
+
+4. **Data Science (CDS)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+5. **Artificial Intelligence (CAI)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+6. **AI & Machine Learning (CSM)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+7. **Cyber Security (CSC)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b990,000
+
+8. **Electrical & Electronics Engineering (EEE)**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b943,000
+
+9. **Civil Engineering**
+   - Convener Quota: \u20b943,000
+   - Management Quota: \u20b943,000
+
+For further details or assistance, please contact the admissions office at Chalapathi Institute of Engineering and Technology.
+2025-06-26 22:00:22,116 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:22,123 - INFO - User Query: fee structure
+2025-06-26 22:00:22,123 - INFO - Selected Tables: ['fee_structure']
+2025-06-26 22:00:22,123 - INFO - Generated SQL: SELECT * FROM fee_structure;
+2025-06-26 22:00:22,124 - INFO - Result: Here is the fee structure for various specializations at Chalapathi Institute of Engineering and Technology:
+
+- **Computer Science and Engineering (CSE):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b91,29,000
+
+- **Electronics and Communication Engineering (ECE):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b965,000
+
+- **Computer Science & Information Technology (CSIT):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b91,01,000
+
+- **Data Science (CDS):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Artificial Intelligence (CAI):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **AI & Machine Learning (CSM):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Cyber Security (CSC):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b990,000
+
+- **Electrical & Electronics Engineering (EEE):**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b943,000
+
+- **Civil Engineering:**
+  - Convener Quota: \u20b943,000
+  - Management Quota: \u20b943,000
+
+For further details or assistance, please contact the admissions office at Chalapathi Institute of Engineering and Technology.
+2025-06-26 22:00:33,797 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:35,061 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:36,991 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:00:36,996 - INFO - User Query: is any bus from tenali
+2025-06-26 22:00:36,997 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:00:36,997 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'TENALI'
+2025-06-26 22:00:36,997 - INFO - Result: Based on the available data, there is a bus service from Tenali to Chalapathi Institute of Engineering and Technology. Here are the details:
+
+- Bus Number: 7
+- Driver Name: Mr. Narasimha Rao
+- Departure Time: 07:30 AM
+
+This bus will stop at Tenali on its route to the institute. Please ensure to be at the stop on time for a safe and punctual journey to the campus.
+2025-06-26 22:01:06,128 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:01:06,763 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:01:23,121 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:01:23,128 - INFO - User Query: is amy bus from market
+2025-06-26 22:01:23,128 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:01:23,128 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Driver_Name = 'AMY BUS' AND Route_Stop = 'MARKET';
+2025-06-26 22:01:23,128 - INFO - Result: Based on the information retrieved from our database, there is no record of an Amy bus service from the market. No matching data was found in the records. We apologize for any inconvenience this may cause. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 22:01:23,799 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:01:31,987 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:01:31,992 - INFO - User Query: is amy bus from market
+2025-06-26 22:01:31,992 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:01:31,992 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Driver_Name LIKE '%amy%' AND Route_Stop LIKE '%market%';
+2025-06-26 22:01:31,993 - INFO - Result: Based on the information retrieved from the database, there are no records indicating the availability of a bus service named "Amy" from the market. Therefore, no such facility exists in our current records.
+2025-06-26 22:02:00,099 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:02:00,847 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:02:01,702 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:02:01,712 - INFO - User Query: is any bus from market
+2025-06-26 22:02:01,713 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:02:01,713 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE Route_Stop = 'market';
+2025-06-26 22:02:01,713 - INFO - Result: Based on the database query, no matching data was found indicating the availability of a bus from the market. Therefore, it appears there are no buses currently scheduled or available from that location.
+2025-06-26 22:02:02,291 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:02:12,458 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:02:12,466 - INFO - User Query: is any bus from market
+2025-06-26 22:02:12,466 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:02:12,466 - INFO - Generated SQL: SELECT * FROM structured_transport WHERE LOWER(Route_Stop) LIKE LOWER('%market%');
+2025-06-26 22:02:12,466 - INFO - Result: Based on the available data, there are buses that stop at the market. Here are the details:
+
+1. Bus Number: 8
+   - Driver Name: Mr. Pullaiah
+   - Route Stop: Market
+   - Time: 08:20 AM
+
+2. Bus Number: 9
+   - Driver Name: Mr. B. Singaiah
+   - Route Stop: Market
+   - Time: 08:15 AM
+
+3. Bus Number: 10
+   - Driver Name: Mr. Raghu
+   - Route Stop: Market
+   - Time: 08:25 AM
+
+Please ensure to check the exact timings and bus numbers for your convenience.
+2025-06-26 22:03:38,663 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:03:39,090 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:03:39,987 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:03:40,000 - INFO - User Query: how many facelty have p.hd
+2025-06-26 22:03:40,000 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:03:40,000 - INFO - Generated SQL: SELECT COUNT(*)
+FROM faculty_data
+WHERE Qualification = 'Ph.D';
+2025-06-26 22:03:40,000 - INFO - Result: The Chalapathi Institute of Engineering and Technology has a total of 15 faculty members who hold a Ph.D. degree.
+2025-06-26 22:04:22,873 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:04:28,217 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:04:32,725 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:04:32,735 - INFO - User Query: give me names of that facelty
+2025-06-26 22:04:32,735 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:04:32,735 - INFO - Generated SQL: SELECT Faculty_Name FROM faculty_data
+2025-06-26 22:04:32,735 - INFO - Result: Here is the list of faculty members at Chalapathi Institute of Engineering and Technology:
+
+1. Dr V Naga Gopi Raju
+2. Mr Sd Nagul Meera
+3. Mr Meda Venkateswarlu
+4. Mr S James
+5. Mrs D Ganga
+6. Mr P Bujji Babu
+7. Mrs Y Nikitha
+8. Mrs T Gayathri
+9. Mr J Ratna
+10. Mrs K Anusha
+11. Mrs V Yamini Lakshmi
+12. Mr CH Mahendra Siva Sai
+13. Mrs B Sravani
+14. Mr G Govardhana
+15. Mrs D Hema Latha
+16. Mrs S Lalitha Kumari
+17. Mrs M Lakshmi Prasanna
+18. Mrs K Aruna Kumari
+19. Mr S Venkata Durga Prasad
+20. Mr T Venkatesh
+21. Mrs D Kiran Mai
+22. Mr N Nanda Prakash
+23. Mrs V Amani
+24. Mr Sk Johny Basha
+25. Mrs M Amulya
+26. Mrs S Nikitha
+27. Dr Ch Nithin Kumar Reddy
+28. Mr K Chinna Subba Rao
+29. Mr D Vinay Kumar
+30. Mr  J Rakesh
+31. Mr  ch Sai Kalyan
+32. Mrs Y Kiranmai
+33. Mrs Syed Tayyada
+34. Mrs S Sundara Mohan
+35. Mr P Siva Srinivasa Rao
+36. Mr T Venkateswarlu
+37. Mrs T Aparna
+38. Mr A Anil
+39. Mr B Ashok Kumar
+40. Mr Y Satish Babu
+41. Mr  K Brahmendra
+42. Dr A  Balaji
+43. Prof P Subba Rao
+44. Dr Y Rokesh kumar
+45. Dr Sk  Alimoon
+46. Dr  Sk  Mulla Shabbeer
+47. Sri G Bharath Kumar
+48. Sri Sk John Sydulu
+49. Sri P Venkata Siva
+50
+2025-06-26 22:06:12,061 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:06:15,085 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:06:25,056 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:06:25,061 - INFO - User Query: name the facelty who hold   p.hd
+2025-06-26 22:06:25,061 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:06:25,061 - INFO - Generated SQL: SELECT Faculty_Name
+FROM faculty_data
+WHERE Qualification = 'Ph.D';
+2025-06-26 22:06:25,063 - INFO - Result: The following faculty members at Chalapathi Institute of Engineering and Technology hold a Ph.D. degree:
+
+1. Dr. V Naga Gopi Raju
+2. Dr. Ch Nithin Kumar Reddy
+3. Dr. P V Narendra Kumar
+4. Dr. A Radhakrishna Murthy
+5. Dr. D Thirupathi Naidu
+6. Dr. R Srinivasulu
+7. Dr. N Sathyanarayana
+8. Dr. M Ravi Kumar
+9. Mrs. V Lakshmi Sandhya
+10. Dr. G Padmavathi
+11. Dr. M N V Sathyanarayana
+12. Dr. G Parvathi
+13. Dr. P Sridhar Babu
+14. Dr. N Krishna
+15. Dr. Ch Ramadevi
+2025-06-26 22:07:08,396 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:09,910 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:14,496 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:14,502 - INFO - User Query: name the facelty who hold both p.hd and m.tech
+2025-06-26 22:07:14,545 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:07:14,545 - INFO - Generated SQL: SELECT Faculty_Name
+FROM faculty_data
+WHERE Qualification LIKE '%M.Tech%' AND Qualification LIKE '%Ph.D%';
+2025-06-26 22:07:14,545 - INFO - Result: The following faculty members at Chalapathi Institute of Engineering and Technology hold both a Ph.D. and an M.Tech degree:
+
+1. Mrs. K. Aruna Kumari
+2. Dr. Y. Rokesh Kumar
+3. Dr. Sk. Alimoon
+4. Dr. Sk. Mulla Shabbeer
+5. Sri G. Bharath Kumar
+6. Dr. K. Venkata Rama Rao
+7. Dr. J. Lakshmi Narayana
+8. Dr. Mirza Shafi Shahsavar
+9. Dr. K. Praveena
+10. Dr. N. Prophess Rajkumar
+11. Dr. M. Sirisha
+12. Dr. N. Nanda Prakash
+13. Mr. K. Murali Krishna Raju
+14. Mrs. N. Vanajakshi
+15. Mr. B. Balakrishna
+16. Mr. K. Suresh
+2025-06-26 22:07:51,171 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:52,420 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:57,646 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:07:57,651 - INFO - User Query: list and name the Associate Professor
+2025-06-26 22:07:57,652 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:07:57,689 - INFO - Generated SQL: SELECT Faculty_Name FROM faculty_data WHERE Designation = 'Associate Professor'
+2025-06-26 22:07:57,690 - INFO - Result: Here is the list of Associate Professors at Chalapathi Institute of Engineering and Technology:
+
+1. Mr. Sd Nagul Meera
+2. Dr. Ch Nithin Kumar Reddy
+3. Mr. K Chinna Subba Rao
+4. Dr. Y Rokesh Kumar
+5. Dr. Sk Alimoon
+6. Dr. N Prophess Rajkumar
+7. Mr. K Murali Krishna Raju
+8. Mrs. N Vanajakshi
+9. Mr. K Suresh
+10. Dr. G Padmavathi
+11. Dr. M N V Sathyanarayana
+12. Dr. G Parvathi
+13. Dr. P Sridhar Babu
+14. Mr. Y Bujji Babu
+15. Mr. B Vijay Kumar
+16. Dr. Ch Ramadevi
+2025-06-26 22:09:05,118 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:09:14,522 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:09:16,008 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:09:16,011 - INFO - User Query: name the NSS Coordinator
+2025-06-26 22:09:16,011 - INFO - Selected Tables: ['college_info']
+2025-06-26 22:09:16,011 - INFO - Generated SQL: SELECT * FROM college_info WHERE college_name = 'Chalapathi Institute of Engineering and Technology'
+2025-06-26 22:09:16,011 - INFO - Result: I apologize, but the provided data does not include information about the NSS Coordinator. For the most accurate and up-to-date information, I would recommend contacting the college administration directly. They would be best equipped to provide the details you are seeking.
+2025-06-26 22:13:06,027 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:13:07,257 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:13:26,140 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:13:26,145 - INFO - User Query: tell me about collage
+2025-06-26 22:13:26,145 - INFO - Selected Tables: ['college_info']
+2025-06-26 22:13:26,145 - INFO - Generated SQL: SELECT * FROM college_info WHERE college_name = 'Chalapathi Institute of Engineering and Technology';
+2025-06-26 22:13:26,145 - INFO - Result: **Chalapathi Institute of Engineering and Technology (CIET) Overview**
+
+**Institution Name:** Chalapathi Institute of Engineering and Technology
+
+**Established Year:** 2007
+
+**Campus Area:** 10.23 acres
+
+**Location:**
+Chalapathi Nagar, Lam,
+Guntur - 522034,
+Andhra Pradesh, India
+
+**Founder:** Sri Y.V. Anjaneyulu
+
+**Autonomous Status:** Yes (UGC, 10 years)
+
+**NBA Accredited Programs:**
+- Computer Science and Engineering (CSE)
+- Electronics and Communication Engineering (ECE)
+- Electrical and Electronics Engineering (EEE)
+- Civil Engineering (up to Academic Year 2024-25)
+
+**Undergraduate Programs:**
+- Computer Science and Engineering (CSE)
+- Computer Science and Information Technology (CSIT)
+- Computer Science and Engineering with Artificial Intelligence (CSE with AI)
+- Data Science
+- Artificial Intelligence and Machine Learning (AIML)
+- Cyber Security
+- Electronics and Communication Engineering (ECE)
+- Electrical and Electronics Engineering (EEE)
+- Civil Engineering (CE)
+
+**Postgraduate Programs:**
+- Master of Technology (M.Tech) in Computer Science and Engineering (CSE)
+- Master of Technology (M.Tech) in VLSI & Embedded Systems Design
+
+**Vision:**
+To emerge as an Institute of Excellence for Engineering and Technology.
+
+**Mission:**
+Student-centric, innovative, lifelong learning.
+
+**Contact Information:**
+- **Phone:** 0863 - 2524112, 2524113
+- **Mobile:** 8333800596, 8333800597
+- **Website:** [https://chalapathiengg.ac.in/](https://chalapathiengg.ac.in/)
+
+For further inquiries, please feel free to reach out to the provided contact details. We appreciate your interest in Chalapathi Institute of Engineering and Technology.
+2025-06-26 22:15:36,950 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:15:38,266 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:15:38,797 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:15:38,800 - INFO - User Query: who is founder
+2025-06-26 22:15:38,800 - INFO - Selected Tables: ['college_info']
+2025-06-26 22:15:38,800 - INFO - Generated SQL: SELECT founder FROM college_info
+2025-06-26 22:15:38,800 - INFO - Result: The founder of Chalapathi Institute of Engineering and Technology is Sri Y.V. Anjaneyulu.
+2025-06-26 22:24:32,376 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:24:34,337 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:24:59,954 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:25:00,009 - INFO - User Query: give me a list of all hods
+2025-06-26 22:25:00,009 - INFO - Selected Tables: ['girlshostel_structure', 'boyshostel_structure']
+2025-06-26 22:25:00,010 - INFO - Generated SQL: SELECT Hostel_Name, Hostel_Incharge, Contact, Academic_Year
+FROM girlshostel_structure
+UNION ALL
+SELECT Hostel_Name, Hostel_Incharge, Contact, Academic_Year
+FROM boyshostel_structure
+2025-06-26 22:25:00,010 - INFO - Result: Certainly! Below is the list of all Heads of Departments (HODs) at Chalapathi Institute of Engineering and Technology:
+
+1. **Hostel Name:** GIRLS HOSTEL-1(BIG)
+   - **Hostel Incharge:** K. Vijaya Lakshmi, Assistant Professor (ECE)
+   - **Contact:** 7382975431
+   - **Academic Year:** 2025-2026
+
+2. **Hostel Name:** GIRLS HOSTEL-2
+   - **Hostel Incharge:** K. Vijaya Lakshmi, Assistant Professor (ECE)
+   - **Contact:** 7382975431
+   - **Academic Year:** 2025-2026
+
+3. **Hostel Name:** BOYS-1ST YEAR
+   - **Hostel Incharge:** T. Venkatesh, Assistant Professor (EEE)
+   - **Contact:** 9160695990
+   - **Academic Year:** 2025-2026
+
+4. **Hostel Name:** BOYS-2ND YEAR
+   - **Hostel Incharge:** T. Venkatesh, Assistant Professor (EEE)
+   - **Contact:** 9160695990
+   - **Academic Year:** 2025-2026
+
+5. **Hostel Name:** BOYS-3RD YEAR
+   - **Hostel Incharge:** T. Venkatesh, Assistant Professor (EEE)
+   - **Contact:** 9160695990
+   - **Academic Year:** 2025-2026
+
+If you need any further information or assistance, please let me know.
+2025-06-26 22:26:28,577 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:29,401 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:30,233 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:30,236 - INFO - User Query: give me a list of buses i can board in order to reach etukuru from guntur market
+2025-06-26 22:26:30,236 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:26:30,236 - INFO - Generated SQL: SELECT DISTINCT Bus_No, Driver_Name, Time
+FROM structured_transport
+WHERE Route_Stop = 'GUNTUR MARKET'
+INTERSECT
+SELECT DISTINCT Bus_No, Driver_Name, Time
+FROM structured_transport
+WHERE Route_Stop = 'ETUKURU'
+2025-06-26 22:26:30,236 - INFO - Result: I apologize, but no matching data was found in our records for buses that travel from Guntur Market to Etukuru. Please ensure that the locations are spelled correctly or try checking with alternative names. If the issue persists, you may contact our support for further assistance.
+2025-06-26 22:26:31,862 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:33,422 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:33,424 - INFO - User Query: give me a list of buses i can board in order to reach etukuru from guntur market
+2025-06-26 22:26:33,424 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:26:33,424 - INFO - Generated SQL: SELECT DISTINCT Bus_No, Driver_Name, Route_Stop, Time
+FROM structured_transport
+WHERE LOWER(Route_Stop) LIKE LOWER('%guntur market%')
+AND Bus_No IN (
+    SELECT Bus_No
+    FROM structured_transport
+    WHERE LOWER(Route_Stop) LIKE LOWER('%etukuru%')
+)
+2025-06-26 22:26:33,424 - INFO - Result: I apologize, but no matching data was found in our records for buses that travel from Guntur Market to Etukuru. We recommend checking with local bus services or transportation authorities for the most up-to-date information. If you have any other queries or need further assistance, please let us know.
+2025-06-26 22:26:34,625 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:35,547 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:26:35,552 - INFO - User Query: give me a list of buses i can board in order to reach etukuru from guntur market
+2025-06-26 22:26:35,552 - INFO - Selected Tables: ['structured_transport']
+2025-06-26 22:26:35,552 - INFO - Generated SQL: SELECT DISTINCT s1.Bus_No, s1.Driver_Name, s1.Time
+FROM structured_transport s1
+JOIN structured_transport s2 ON s1.Bus_No = s2.Bus_No
+WHERE LOWER(s1.Route_Stop) LIKE '%market%'
+AND LOWER(s2.Route_Stop) LIKE '%etukuru%';
+2025-06-26 22:26:35,552 - INFO - Result: Based on the information available, there is one bus you can board to reach Etukuru from Guntur Market:
+
+- **Bus Number:** 9
+- **Driver Name:** Mr. B. Singaiah
+- **Departure Time:** 08:15 AM
+
+Please ensure to verify the bus schedule and route details with the institute's transport department or the bus driver for any updates or changes. Safe travels.
+2025-06-26 22:27:48,502 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:27:49,583 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:28:03,280 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:28:03,286 - INFO - User Query: give me a list of companies that attended 2025 placements
+2025-06-26 22:28:03,286 - INFO - Selected Tables: ['placement']
+2025-06-26 22:28:03,286 - INFO - Generated SQL: SELECT DISTINCT COMPANY FROM placement WHERE YEAR = 2025
+2025-06-26 22:28:03,286 - INFO - Result: The following is a list of companies that attended the 2025 placements at Chalapathi Institute of Engineering and Technology:
+
+1. Accordian
+2. Cincyr Tech Private Limited
+3. Edu Tantr
+4. Infosys
+5. Inteotix Digital Private Limited, Hyderabad
+6. Kia India Pvt Ltd, Anantapur
+7. Kodnest
+8. Learn Flu
+9. Learnflu
+10. Netlync Technologies
+11. Pentagon Space
+12. Peopletech
+13. Q Spider
+14. Quantum Ai
+15. Skill Forge
+16. Skillforge E-Learning Solutions Pvt Ltd
+17. Sutherland
+18. Tutorac
+19. Vstand4u
+20. Wadi Surgicals Pvt Ltd, Visakhapatnam
+21. Zithara.Ai
+2025-06-26 22:29:35,766 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:38,828 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:44,485 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:44,487 - INFO - User Query: give me a list of students who were placed in Accordian in 2025 from ece
+2025-06-26 22:29:44,488 - INFO - Selected Tables: ['placement']
+2025-06-26 22:29:44,488 - INFO - Generated SQL: SELECT * FROM placement WHERE COMPANY = 'Accordian' AND YEAR = 2025 AND DEPARTMENT = 'ECE';
+2025-06-26 22:29:44,488 - INFO - Result: I have reviewed the database query results, and it appears that no matching data was found for students who were placed in Accordian in the year 2025 from the Electronics and Communication Engineering (ECE) department. This could be due to various reasons such as no placements occurring in that specific company and year, or the data not being recorded yet. I recommend verifying the details of the query or checking back at a later date for updated information.
+2025-06-26 22:29:45,741 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:49,165 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:49,173 - INFO - User Query: give me a list of students who were placed in Accordian in 2025 from ece
+2025-06-26 22:29:49,173 - INFO - Selected Tables: ['placement']
+2025-06-26 22:29:49,173 - INFO - Generated SQL: SELECT * FROM placement WHERE COMPANY LIKE '%Accordian%' AND YEAR = 2025 AND DEPARTMENT = 'ece';
+2025-06-26 22:29:49,173 - INFO - Result: I have reviewed the database query results, and I regret to inform you that no matching data was found for students who were placed in Accordian in the year 2025 from the Electronics and Communication Engineering (ECE) department. It is possible that no placements occurred in that specific company for that year, or the data may not have been recorded yet. I recommend checking back later or verifying the details with the placement cell for the most accurate information.
+2025-06-26 22:29:51,026 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:59,364 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:29:59,368 - INFO - User Query: give me a list of students who were placed in Accordian in 2025 from ece
+2025-06-26 22:29:59,368 - INFO - Selected Tables: ['placement']
+2025-06-26 22:29:59,368 - INFO - Generated SQL: SELECT *
+FROM placement
+WHERE LOWER(COMPANY) LIKE '%accordian%'
+  AND YEAR = 2025
+  AND LOWER(DEPARTMENT) LIKE '%ece%';
+2025-06-26 22:29:59,368 - INFO - Result: I have reviewed the database query results, and it appears that no matching data was found for students who were placed in Accordian in the year 2025 from the Electronics and Communication Engineering (ECE) department. This could be due to various reasons such as no placements occurring in that specific year or the data not being recorded yet. I recommend verifying the year or checking with the placement cell for the most accurate and up-to-date information.
+2025-06-26 22:30:23,404 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:30:28,215 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:30:31,447 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:30:31,450 - INFO - User Query: give me a list of students who were placed in Accordian in 2025 from cse
+2025-06-26 22:30:31,450 - INFO - Selected Tables: ['placement']
+2025-06-26 22:30:31,450 - INFO - Generated SQL: SELECT Name
+FROM placement
+WHERE DEPARTMENT = 'CSE' AND COMPANY = 'Accordian' AND YEAR = 2025
+2025-06-26 22:30:31,450 - INFO - Result: Based on the placement records from the year 2025, the following student from the Computer Science and Engineering (CSE) department at Chalapathi Institute of Engineering and Technology was placed in Accordian:
+
+- Mr. Venkata Vikas Bathula
+2025-06-26 22:32:02,292 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:32:03,364 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:32:05,056 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:32:05,060 - INFO - User Query: give me a list of students who were placed in Pentagon Space in 2025 from cse
+2025-06-26 22:32:05,060 - INFO - Selected Tables: ['placement']
+2025-06-26 22:32:05,061 - INFO - Generated SQL: SELECT Name
+FROM placement
+WHERE DEPARTMENT = 'CSE'
+AND COMPANY = 'Pentagon Space'
+AND YEAR = 2025;
+2025-06-26 22:32:05,061 - INFO - Result: Based on the information retrieved from the placement records, the following student from the Department of Computer Science and Engineering (CSE) at Chalapathi Institute of Engineering and Technology was placed in Pentagon Space in the year 2025:
+
+- Mandapati Vijaya Tejaswini
+2025-06-26 22:33:51,841 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:33:53,842 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:33:54,511 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:33:54,513 - INFO - User Query: did sontena bhargav get any placements
+2025-06-26 22:33:54,513 - INFO - Selected Tables: ['placement']
+2025-06-26 22:33:54,513 - INFO - Generated SQL: SELECT * FROM placement WHERE Name = 'Sontena Bhargav'
+2025-06-26 22:33:54,513 - INFO - Result: Based on the placement records at Chalapathi Institute of Engineering and Technology, Mr. Sontena Bhargav from the Electrical and Electronics Engineering (EEE) department has secured a placement with Inteotix Digital Private Limited, Hyderabad, for the year 2025.
+2025-06-26 22:35:59,296 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:01,169 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:02,032 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:02,035 - INFO - User Query: how many research and developments does ciet have
+2025-06-26 22:36:02,035 - INFO - Selected Tables: ['chalapathi_institute_info', 'college_info']
+2025-06-26 22:36:02,035 - INFO - Generated SQL: SELECT COUNT(*)
+FROM chalapathi_institute_info
+WHERE college_name = 'Chalapathi Institute of Engineering and Technology'
+AND (postgraduate_programs LIKE '%Research%' OR postgraduate_programs LIKE '%Development%');
+2025-06-26 22:36:02,035 - INFO - Result: Based on the available data, Chalapathi Institute of Engineering and Technology (CIET) currently does not have any specific research and development programs listed under postgraduate programs. For the most accurate and up-to-date information, I would recommend visiting the official CIET website or contacting the institute directly.
+2025-06-26 22:36:43,425 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:44,177 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:45,491 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:36:45,494 - INFO - User Query: how many research and development labs does ciet have
+2025-06-26 22:36:45,495 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 22:36:45,495 - INFO - Generated SQL: SELECT COUNT(*)
+FROM lab_infrastructure
+WHERE DEPARTMENT = 'Electronics & Communication Engineering (ECE)'
+AND LAB_NAME = 'Research & Devlopment Laboratory';
+2025-06-26 22:36:45,495 - INFO - Result: The Chalapathi Institute of Engineering and Technology (CIET) has a total of 3 Research and Development Laboratories within the Electronics & Communication Engineering (ECE) department. These labs are dedicated to fostering innovation and advanced research in the field of electronics and communication engineering.
+2025-06-26 22:37:10,776 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:11,435 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:13,549 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:13,553 - INFO - User Query: does your clg sell biryani
+2025-06-26 22:37:13,554 - INFO - Selected Tables: ['college_info']
+2025-06-26 22:37:13,554 - INFO - Generated SQL: SELECT *
+FROM college_info
+WHERE college_name = 'Chalapathi Institute of Engineering and Technology' AND (undergraduate_programs LIKE '%biryani%' OR postgraduate_programs LIKE '%biryani%');
+2025-06-26 22:37:13,554 - INFO - Result: Based on the available data, it appears that Chalapathi Institute of Engineering and Technology (CIET) does not offer biryani sales. No matching data was found in the records regarding this query. If you have any other questions or need further assistance, please feel free to ask.
+2025-06-26 22:37:14,055 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:15,181 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:15,186 - INFO - User Query: does your clg sell biryani
+2025-06-26 22:37:15,186 - INFO - Selected Tables: ['college_info']
+2025-06-26 22:37:15,186 - INFO - Generated SQL: SELECT *
+FROM college_info
+WHERE LOWER(undergraduate_programs) LIKE '%biryani%'
+   OR LOWER(postgraduate_programs) LIKE '%biryani%';
+2025-06-26 22:37:15,186 - INFO - Result: Based on the information available, no such facility exists at Chalapathi Institute of Engineering and Technology (CIET) that sells biryani. If you have any other queries or need further assistance, please feel free to ask.
+2025-06-26 22:37:54,564 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:55,029 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:57,004 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:37:57,008 - INFO - User Query: is there a vlsi lab
+2025-06-26 22:37:57,008 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 22:37:57,008 - INFO - Generated SQL: SELECT *
+FROM lab_infrastructure
+WHERE LAB_NAME LIKE '%VLSI%';
+2025-06-26 22:37:57,008 - INFO - Result: Based on the information available, no VLSI lab facility exists at Chalapathi Institute of Engineering and Technology (CIET). If you have any other inquiries or need further assistance, please feel free to ask.
+2025-06-26 22:38:34,635 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:38:35,550 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:38:36,776 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:38:36,781 - INFO - User Query: is there a vlsi subject lab
+2025-06-26 22:38:36,781 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 22:38:36,781 - INFO - Generated SQL: SELECT * FROM lab_infrastructure WHERE "SUBJECT/COURSE" = 'VLSI Design';
+2025-06-26 22:38:36,781 - INFO - Result: Based on the information available, it appears that there is no VLSI subject lab at Chalapathi Institute of Engineering and Technology (CIET). No matching data was found in the records. We appreciate your inquiry and are here to assist you with any other information you may need.
+2025-06-26 22:38:37,459 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:38:37,463 - INFO - User Query: is there a vlsi subject lab
+2025-06-26 22:38:37,464 - INFO - Selected Tables: ['lab_infrastructure']
+2025-06-26 22:38:37,464 - INFO - Generated SQL: SELECT *
+FROM lab_infrastructure
+WHERE LOWER(SUBJECT/COURSE) LIKE '%vlsi%'
+2025-06-26 22:38:37,464 - INFO - Result: \u274c SQL execution error: no such column: SUBJECT
+2025-06-26 22:47:26,609 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:47:27,350 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:47:28,034 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:47:28,038 - INFO - User Query: give me a list of hods
+2025-06-26 22:47:28,038 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:47:28,038 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Designation = 'Head of Department'
+2025-06-26 22:47:28,038 - INFO - Result: I apologize, but no matching data was found in the records for the list of HODs (Heads of Departments) at Chalapathi Institute of Engineering and Technology (CIET). Please ensure that the query is accurate or try again later. If you need further assistance, feel free to ask.
+2025-06-26 22:47:28,454 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:47:37,427 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:47:37,432 - INFO - User Query: give me a list of hods
+2025-06-26 22:47:37,432 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:47:37,432 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE LOWER(Designation) LIKE '%hod%'
+2025-06-26 22:47:37,432 - INFO - Result: Here is the list of Heads of Departments (HODs) at Chalapathi Institute of Engineering and Technology:
+
+1. **Dr V Naga Gopi Raju**
+   - Designation: Associate Professor and HOD
+   - Qualification: Ph.D
+   - Department: AI & CSM
+
+2. **Mrs K Aruna Kumari**
+   - Designation: Assistant Professor and HOD
+   - Qualification: M.Tech, Ph.D
+   - Department: CDS
+
+3. **Dr A Balaji**
+   - Designation: Professor and HOD
+   - Qualification: M.E, Ph.D
+   - Department: CSE
+
+4. **Dr K Venkata Rama Rao**
+   - Designation: Professor and HOD
+   - Qualification: M.Tech, Ph.D
+   - Department: ECE
+
+5. **Dr P V Narendra Kumar**
+   - Designation: Associate Professor and HOD
+   - Qualification: Ph.D
+   - Department: EEE
+
+6. **Dr A Radhakrishna Murthy**
+   - Designation: Professor and HOD
+   - Qualification: Ph.D
+   - Department: All 1st Year Departments
+
+7. **Mr J Bhargav**
+   - Designation: Asst. Professor and HOD
+   - Qualification: M.Tech
+   - Department: IT
+
+This list is presented with the utmost respect and formality, reflecting the professional standards of Chalapathi Institute of Engineering and Technology.
+2025-06-26 22:52:23,053 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-26 22:55:16,018 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:55:23,468 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:55:23,473 - INFO - User Query: does your college provide 100% placements
+2025-06-26 22:55:23,473 - INFO - Selected Tables: ['placement']
+2025-06-26 22:55:23,473 - INFO - Generated SQL: SELECT COUNT(*) AS total_students, COUNT(DISTINCT COMPANY) AS total_companies
+FROM placement
+WHERE YEAR = 2025;
+
+SELECT COUNT(*) AS placed_students
+FROM placement
+WHERE YEAR = 2025;
+
+SELECT (SELECT COUNT(*) FROM placement WHERE YEAR = 2025) * 100.0 / (SELECT COUNT(*) FROM placement) AS placement_percentage;
+2025-06-26 22:55:23,473 - INFO - Result: \u274c SQL execution error: You can only execute one statement at a time.
+2025-06-26 22:57:48,859 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:57:50,235 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:57:54,346 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:57:54,351 - INFO - User Query: who is Mrs K Aruna Kumari
+2025-06-26 22:57:54,351 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:57:54,351 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Faculty_Name = 'Mrs K Aruna Kumari'
+2025-06-26 22:57:54,351 - INFO - Result: Mrs. K. Aruna Kumari is an esteemed faculty member at Chalapathi Institute of Engineering and Technology. She serves as the Assistant Professor and Head of the Department (HOD) in the Computer Data Science (CDS) department. Mrs. Kumari holds an impressive academic background with an M.Tech and a Ph.D. degree. Her leadership and expertise significantly contribute to the academic excellence of our institution.
+2025-06-26 22:58:00,914 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:58:05,837 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:58:23,652 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:58:23,656 - INFO - User Query: who is rao
+2025-06-26 22:58:23,656 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 22:58:23,656 - INFO - Generated SQL: SELECT * FROM faculty_data WHERE Faculty_Name LIKE '%rao%'
+2025-06-26 22:58:23,656 - INFO - Result: Based on the information available in the faculty database, the following individuals with the name 'Rao' are associated with Chalapathi Institute of Engineering and Technology:
+
+1. Mr K Chinna Subba Rao - Associate Professor, M.Tech, Department of CIVIL
+2. Mr P Siva Srinivasa Rao - Assistant Professor, MCA, M.Tech, Department of CSC
+3. Prof P Subba Rao - Professor, MS, Department of CSE
+4. Dr K Venkata Rama Rao - Professor and HOD, M.Tech, Ph.D, Department of ECE
+5. Mr B Venkateswara Rao - Assistant Professor, M.Tech, Department of ECE
+6. Mr M Koteswara Rao - Assistant Professor, M.Tech, Department of ECE
+7. Mr K Srinivasa Rao - Assistant Professor, M.A, for all 1st year departments
+8. Mr M Nageswara Rao - Assistant Professor, M.Sc, for all 1st year departments
+9. Mr P Panduranga Rao - Assistant Professor, M.A, for all 1st year departments
+
+Please note that the information provided is based on the data available in the faculty database. If you require more specific information or have any other queries, please feel free to ask.
+2025-06-26 22:58:56,684 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:58:57,065 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-26 22:58:57,066 - ERROR - Unexpected error during attempt 1: API error occurred: Status 429
+{"object":"error","message":"Service tier capacity exceeded for this model.","type":"invalid_request_error","param":null,"code":null}
+2025-06-26 22:59:30,764 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 22:59:33,826 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:00:10,579 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:00:10,582 - INFO - User Query: is there a guy called rao in placements
+2025-06-26 23:00:10,582 - INFO - Selected Tables: ['placement']
+2025-06-26 23:00:10,582 - INFO - Generated SQL: SELECT * FROM placement WHERE Name LIKE '%rao%'
+2025-06-26 23:00:10,582 - INFO - Result: Based on the information available in the placement records of Chalapathi Institute of Engineering and Technology, the following individuals with the name 'Rao' have been placed:
+
+1. **Department:** Electrical and Electronics Engineering (EEE)
+   - **Name:** Ravalavalasa Niranjan Rao
+   - **Company:** Kia India Pvt Ltd, Anantapur
+   - **Year:** 2025
+
+2. **Department:** Computer Science and Engineering (CDS)
+   - **Name:** Teega Narasimharao
+   - **Company:** Learn Flu
+   - **Year:** 2025
+
+3. **Department:** Computer Science and Engineering (CDS)
+   - **Name:** DuggiRala Rama Rao
+   - **Company:** Quantum Ai
+   - **Year:** 2025
+
+4. **Department:** Computer Science and Engineering (CDS)
+   - **Name:** Teega Narasimharao
+   - **Company:** Tutorac
+   - **Year:** 2025
+
+These records indicate successful placements of individuals with the name 'Rao' in various companies. If you require further details or assistance, please let me know.
+2025-06-26 23:01:04,662 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:01:05,003 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-26 23:01:05,003 - ERROR - Unexpected error during attempt 1: API error occurred: Status 429
+{"object":"error","message":"Service tier capacity exceeded for this model.","type":"invalid_request_error","param":null,"code":null}
+2025-06-26 23:01:52,942 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-06-26 23:45:02,706 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:45:03,854 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:45:03,877 - INFO - User Query: delete hod of cse
+2025-06-26 23:45:03,878 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 23:45:03,878 - INFO - Generated SQL: DELETE FROM faculty_data WHERE Designation = 'Professor And Hod' AND Department = 'CSE';
+2025-06-26 23:45:03,878 - INFO - Result: \u274c SQL execution error: 'NoneType' object is not iterable
+2025-06-26 23:46:29,441 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:46:29,888 - INFO - HTTP Request: POST https://api.mistral.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-26 23:46:29,893 - INFO - User Query: delete Hod of cse
+2025-06-26 23:46:29,893 - INFO - Selected Tables: ['faculty_data']
+2025-06-26 23:46:29,893 - INFO - Generated SQL: DELETE FROM faculty_data WHERE Faculty_Name = 'Mr I Krishna Teja' AND Department = 'CSE' AND Designation = 'HOD';
+2025-06-26 23:46:29,893 - INFO - Result: \u274c SQL execution error: 'NoneType' object is not iterable

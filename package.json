@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "vite",
-    "server": "nodemon server/index.js",
+    "server": "uvicorn pyver.main:socket_app --host 0.0.0.0 --port 3001 --reload",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "lucide-react": "^0.344.0",
@@ -20,6 +21,7 @@
     "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.7.4",
     "uuid": "^9.0.1",
