@@ -135,6 +135,7 @@ def get_result_summary_prompt(user_query: str, col_names: list, rows: list, gene
                 "Present the answer clearly, respectfully, and with institutional tone.\n"
                 "- Use full names and titles when applicable.\n"
                 "- Avoid emojis, jokes, or casual remarks.\n"
+                "- If any emails or phone numbers are in the results, mask them (eg: +91 92******10, b***u@gmail.com)"
                 "- If the result is a list, present it with clarity and formality.\n"
                 "- Always assume this is for public display on an official college platform."
             )

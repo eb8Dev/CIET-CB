@@ -132,7 +132,7 @@ def generate_sql_query(ctx: AssistantContext, db_path: str, use_like: bool = Fal
         f"{fkey_desc}\n\n"
         f"{data_samples_desc}"
     )
-    print("[debug] Full schema + data context sent to LLM:\n", prompt_context)
+    # print("[debug] Full schema + data context sent to LLM:\n", prompt_context)
 
     messages = get_sql_generation_prompt(ctx, use_like, extra_context=prompt_context)
     response = client.chat.complete(model=MODEL, messages=messages, max_tokens=512, temperature=0)
@@ -148,7 +148,11 @@ def execute_and_interpret(ctx: AssistantContext, db_path: str) -> str:
         rows = cursor.fetchall()
         col_names = [desc[0] for desc in cursor.description]
     except Exception as e:
-        return f"❌ SQL execution error: {e}"
+        logging.error(f"SQL execution issue: {e}")
+        return (
+            "⚠️ Hmm, something went wrong while executing your request.\n"
+            "Please try again, and if the issue continues, kindly contact support or the office for assistance."
+        )
     finally:
         conn.close()
 
@@ -158,7 +162,7 @@ def execute_and_interpret(ctx: AssistantContext, db_path: str) -> str:
         return response.choices[0].message.content.strip()
 
     messages = get_result_summary_prompt(ctx.user_query, col_names, rows, ctx.generated_sql)
-    response = client.chat.complete(model=MODEL, messages=messages, max_tokens=500, temperature=0.3)
+    response = client.chat.complete(model=MODEL, messages=messages, max_tokens=1000, temperature=0.3)
     return response.choices[0].message.content.strip()
 
 def try_generate_and_execute(ctx: AssistantContext, db_path: str, max_retries: int = 3) -> str:
@@ -176,14 +180,23 @@ def try_generate_and_execute(ctx: AssistantContext, db_path: str, max_retries: i
             if "no matching data" in result.lower() or result.startswith("❌ No results found.") or "no data" in result.lower():
                 if attempt == max_retries:
                     return "❌ No data found after multiple attempts."
-            elif result.startswith("❌ SQL execution error"):
+            elif result.startswith("❌ SQL execution error") or result.startswith("⚠️ Hmm, something went wrong"):
                 return result
             else:
                 return result
         except Exception as e:
             logging.error(f"Unexpected error during attempt {attempt}: {e}")
-            return f"❌ Unexpected error during attempt {attempt}: {e}"
-    return "❌ Failed after all retries."
+            return (
+                f"⚠️ An unexpected issue occurred while processing your request (attempt {attempt}).\n"
+                "Please try again shortly. If this continues to happen, consider reaching out to support for help."
+            )
+
+    # ✅ Now this is correctly placed *after* the for loop
+    return (
+        "⚠️ We tried several times but couldn’t complete your request.\n"
+        "You may want to rephrase your question or contact support for further help."
+    )
+
 
 if __name__ == "__main__":
     DB_PATH = "college_data.db"
@@ -221,11 +234,19 @@ if __name__ == "__main__":
         try:
             ctx.selected_tables = find_tables(ctx.user_query, ALL_TABLES)
             if not ctx.selected_tables:
-                print("❌ Could not identify relevant tables for your query. Please try rephrasing.")
+                print(
+                "⚠️ I couldn't quite figure out which data to use for your question.\n"
+                 "You might try rephrasing it. If the issue persists, feel free to contact support."
+                )   
                 continue
+
             print(f"📌 Tables selected: {ctx.selected_tables}")
         except Exception as e:
-            print(f"❌ Error identifying tables: {e}")
+            print(
+                "⚠️ We encountered a slight issue trying to understand your request.\n"
+                "Please try rephrasing it, or contact the support team if the issue keeps happening."
+            )
+
             continue
 
         result = try_generate_and_execute(ctx, DB_PATH)
