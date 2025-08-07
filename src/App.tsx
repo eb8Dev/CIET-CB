@@ -8,11 +8,13 @@ import remarkGfm from 'remark-gfm';
 
 const CATEGORY_QUERIES = {
   faculty: [
-    'Could you provide a detailed list of the faculty members, including their designations and departments?',
-    'Who are the current Heads of Departments for each academic department?',
-    'Please share the profiles of the department heads along with their research interests.',
-    'How many professors and assistant professors are currently employed in each department?',
-    'Can you provide detailed faculty contact information and office hours?'
+    'Show all faculty names and their departments.',
+    'What are the qualifications of the faculty in the CSE department?',
+    'List the designations of faculty in the ECE department.',
+    'Which faculty have Ph.D. qualifications?',
+    'Who are the senior-most faculty members (based on joining year)?',
+    'How many faculty are available in each department?'
+
   ],
   hostel: [
     'What accommodation facilities are available for boys and girls on campus?',
@@ -21,34 +23,41 @@ const CATEGORY_QUERIES = {
     'Are there any guidelines or rules regarding dormitory availability and allocation?',
     'Please share details on application process and eligibility criteria for hostel admission.'
   ],
-  fees: [
-    'Can you provide the detailed fee structure for all courses offered?',
-    'What are the fees applicable for management quota seats compared to convener quota?',
-    'Please share the complete admission fee details, including any refundable deposits.',
-    'Are there any scholarships or financial aid options available for fee payment?',
-    'What is the breakdown of tuition and other fees for each semester?'
-  ],
   placement: [
-    'Could you provide recent placement statistics including percentage of students placed?',
-    'Which companies have visited the campus for recruitment in the last year?',
-    'What is the highest and average salary package offered to students during placements?',
-    'Can you provide information on internship opportunities and placement support?',
-    'Please share details about placement cell activities and contact information.'
+    'Which companies visited for placement in 2023?',
+    'Show the list of students placed from CSE.',
+    'Which student got placed in Infosys?',
+    'How many students from ECE got placed?',
+    'List students placed department-wise.',
+    'What are the top hiring companies in the last 2 years?'
+
+  ],
+  fee: [
+    'What is the convener quota fee for CSE?',
+    'What is the convener quota fee for CSE?',
+    'Show the fee structure for all specializations',
+    'Show the fee structure for all specializations',
+    'Which specialization has the highest fee?',
+    'Which specialization has the highest fee?'
+
   ],
   transport: [
-    'What are the official college bus timings and routes available for students?',
-    'Could you provide detailed information about transportation facilities and stops?',
-    'Is there a schedule available for all buses running between the campus and the city?',
-    'Are there any shuttle services available during late hours or weekends?',
-    'Please share guidelines on how to register for college transport services.'
+    'Which specialization has the highest fee?',
+    'What time does the college bus reach Nallapadu?',
+    'Who is the driver of Bus No. 5?',
+    'What are the route stops covered by each bus?',
+    'How many buses are available for student transport?',
+    'Show the transport schedule and timings.'
   ],
   lab_infrastructure: [
-    'What laboratory facilities are available for each academic department?',
-    'Can you provide detailed information about lab equipment and infrastructure?',
-    'Are there any specialized labs for research and development purposes?',
-    'Please share the list of labs accessible to undergraduate and postgraduate students.',
-    'What safety protocols are followed in the laboratories?'
+    'List all labs available in the CSE department.',
+    'How many systems are there in the Data Structures lab?',
+    'What subjects are associated with each lab?',
+    'Which lab has the highest number of systems?',
+    'Show all labs along with their departments.',
+    'What labs are available for ECE students?'
   ],
+
   intake_capacity: [
     'What is the total intake capacity for each course offered by the college?',
     'Could you provide the department-wise seat allocation and reservation details?',
@@ -72,7 +81,16 @@ const CATEGORY_QUERIES = {
     'What is the mobile contact number for admissions or inquiries?',
     'Please provide the official email address for general communication.',
     'What is the college’s official website URL?'
+  ],
+  global_Certifications: [
+    'How many students have completed the "Certified Ethical Hacker" certification?',
+    'List all certifications offered along with their certification bodies.',
+    'Which certification has the highest number of certified students?',
+    'How many students are certified in courses offered by ServiceNow?',
+    'Give me the total number of certifications achieved by students.',
+    'Show certifications related to cloud platforms like Azure or Salesforce.'
   ]
+
 };
 
 const ALLOWED_EMAIL_DOMAINS = [
@@ -84,7 +102,6 @@ const ALLOWED_EMAIL_DOMAINS = [
   'protonmail.com',
   'live.com',
   'msn.com',
-  // add any other domains you consider popular
 ];
 
 
@@ -95,12 +112,13 @@ interface Message {
   timestamp: Date;
 }
 
-type OnboardingStep = 'welcome' | 'askName' | 'askEmail' | 'done';
+type OnboardingStep = 'welcome' | 'askName' | 'askRollNumber' | 'askEmail' | 'done';
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [userName, setUserName] = useState('');
+  const [userRollNo, setUserRollNo] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [step, setStep] = useState<OnboardingStep>('welcome');
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -109,8 +127,8 @@ function App() {
 
   useEffect(() => {
     console.log('Initializing socket connection...');
-    // const newSocket = io('http://localhost:3001');
-    const newSocket = io('http://192.168.31.80:3001');
+    const newSocket = io('http://localhost:3001');
+    // const newSocket = io('http://192.168.1.6:3001/');
     setSocket(newSocket);
 
     newSocket.on('connect', () => {
@@ -176,10 +194,21 @@ function App() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) return false;
 
-    const domain = email.split('@')[1].toLowerCase();
-    return ALLOWED_EMAIL_DOMAINS.includes(domain);
+    const [localPart, domain] = email.split('@');
+    if (localPart.length < 6) return false;
+
+    return ALLOWED_EMAIL_DOMAINS.includes(domain.toLowerCase());
   };
 
+  const VALID_BRANCHES = ['csm', 'cai', 'ds', 'cse', 'csy', 'csit', 'ece', 'eee', 'ce'];
+
+  const isValidRollNumber = (roll: string) => {
+    const rollRegex = /^[ly]\d{2}([a-z]{3})\d{3}$/i;
+    if (!rollRegex.test(roll)) return false;
+
+    const branchCode = roll.slice(3, 6).toLowerCase();
+    return VALID_BRANCHES.includes(branchCode);
+  };
 
   const handleSubmit = () => {
     const trimmed = inputMessage.trim();
@@ -194,9 +223,19 @@ function App() {
     if (step === 'askName') {
       console.log('Onboarding step: askName');
       setUserName(trimmed);
-      sendBotMessage(`Nice to meet you, ${trimmed}! What's your email address?`);
+      sendBotMessage(`Nice to meet you, ${trimmed}! What's your Roll number?`);
+      setStep('askRollNumber');
+      console.log('User name set to:', trimmed, ', moving to askRollNumber step');
+    } else if (step === 'askRollNumber') {
+      if (!isValidRollNumber(trimmed)) {
+        sendBotMessage("That doesn't look like a valid roll number. Please try again.");
+        return;
+      }
+      // optionally store roll number in state
+      sendBotMessage("Great! Now, what's your email address?");
+      setUserRollNo(trimmed);
       setStep('askEmail');
-      console.log('User name set to:', trimmed, ', moving to askEmail step');
+
     } else if (step === 'askEmail') {
       console.log('Onboarding step: askEmail');
       if (!isValidEmail(trimmed)) {
@@ -209,9 +248,10 @@ function App() {
       if (socket) {
         socket.emit('register_user', {
           name: userName,
-          email: trimmed
+          email: trimmed,
+          rollno: userRollNo,
         });
-        console.log('User info emitted to backend:', { name: userName, email: trimmed });
+        console.log('User info emitted to backend:', { name: userName, email: trimmed, rollno: userRollNo, });
       }
       sendBotMessage(`You're all set, ${userName}. You can ask questions or click on a topic below.`);
       setStep('done');
@@ -241,18 +281,26 @@ function App() {
   const formatTime = (date: Date) =>
     date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+
+  const extractYouTubeVideoIds = (text: string): string[] => {
+    const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/g;
+    const matches = [...text.matchAll(regex)];
+    return matches.map((m) => m[1]);
+  };
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between h-[80px]">
+          <div className="flex items-center justify-between h-[40px]">
             <div className="w-[30%] h-full flex items-center">
               <img src={CIETLogo} alt="CIET Logo" className="h-full object-contain" />
             </div>
             <div className="flex-1 px-4 text-right">
               <h1 className="text-xl font-bold text-slate-800">CIET Assistant</h1>
-              <p className="text-sm text-slate-500">First Ever db Agent</p>
+              <p className="text-sm text-slate-500">Your Trusted Digital Assistant for Students and the Public</p>
             </div>
             {/* <div className="w-[30%] h-full flex items-center ">
               <img src={TFILogo} alt="TFI Logo" className="h-full object-contain" />
@@ -262,27 +310,44 @@ function App() {
       </header>
 
       {/* Chat */}
-      <div className="max-w-4xl mx-auto p-4 h-[calc(100vh-100px)] flex flex-col">
+      <div className="max-w-6xl mx-auto p-4 h-[calc(100vh-80px)] flex flex-col">
         <div className="flex-1 bg-white rounded-2xl shadow-sm border border-slate-200 mb-4 overflow-hidden flex flex-col">
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div className="flex-1 overflow-y-auto p-2 space-y-4">
             {messages.map(msg => (
-              <div key={msg.id} className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}>
+              <div className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}>
                 <div className={`flex items-start space-x-3 max-w-3xl ${msg.isBot ? '' : 'flex-row-reverse space-x-reverse'}`}>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${msg.isBot ? 'bg-gradient-to-br from-orange-500 to-orange-700' : 'bg-gradient-to-br from-green-500 to-teal-600'}`}>
                     {msg.isBot ? <Bot className="w-5 h-5 text-white" /> : <User className="w-5 h-5 text-white" />}
                   </div>
-                  <div className={`rounded-2xl px-4 py-3 ${msg.isBot ? 'bg-slate-100 text-slate-800' : 'bg-gradient-to-r from-orange-500 to-orange-700 text-white'}`}>
+
+                  {/* Message Bubble with Inline Timestamp */}
+                  <div className={`rounded-2xl px-4 py-2 relative ${msg.isBot ? 'bg-slate-100 text-slate-800' : 'bg-gradient-to-r from-orange-500 to-orange-700 text-white'}`}>
                     <div className={`prose prose-sm max-w-none ${msg.isBot ? 'text-slate-800' : 'text-white'}`}>
                       <ReactMarkdown remarkPlugins={[remarkGfm]}>
                         {msg.text}
                       </ReactMarkdown>
+
+                      {extractYouTubeVideoIds(msg.text).map((videoId) => (
+                        <div key={videoId} className="aspect-w-16 aspect-h-9 w-full mt-2">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${videoId}`}
+                            title="YouTube Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-64 rounded-lg"
+                          ></iframe>
+                        </div>
+                      ))}
                     </div>
-                    <p className={`text-xs mt-2 ${msg.isBot ? 'text-slate-400' : 'text-orange-100'}`}>
+
+                    {/* Inline Shadow Timestamp */}
+                    <div className={`text-xs mt-1 text-opacity-60 ${msg.isBot ? 'text-slate-500' : 'text-orange-100'} text-right`}>
                       {formatTime(msg.timestamp)}
-                    </p>
+                    </div>
                   </div>
                 </div>
               </div>
+
             ))}
 
             {isTyping && (
@@ -346,7 +411,7 @@ function App() {
                       console.log('Input message changed:', e.target.value);
                     }}
                     onKeyPress={handleKeyPress}
-                    placeholder={step === 'askName' ? 'Enter your name...' : step === 'askEmail' ? 'Enter your email...' : 'Ask your question...'}
+                    placeholder={step === 'askName' ? 'Enter your name...' : step === 'askRollNumber' ? 'Enter your roll number (e.g., y23csm001)...' : step === 'askEmail' ? 'Enter your email...' : 'Ask your question...'}
                     className="
   w-full px-4 py-3 pr-12 border border-slate-300 rounded-xl 
   focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent 

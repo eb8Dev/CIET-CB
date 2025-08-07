@@ -4,8 +4,8 @@ from fastapi import FastAPI
 import socketio
 import asyncio
 
-from dbagent import AssistantContext, get_all_tables, find_tables, try_generate_and_execute
-
+from dbagent import AssistantContext, get_all_tables, find_tables, try_generate_and_execute, detect_intent
+from mistral_helper import client, MODEL
 DB_PATH = "college_data.db"
 ALL_TABLES = get_all_tables(DB_PATH)
 
@@ -29,7 +29,8 @@ async def connect(sid, environ):
     user_contexts[sid] = {
         'context': AssistantContext(),
         'last_message_time': datetime.min,
-        'ip': ip  # Store IP for later
+        'ip': ip,  # Store IP for later
+        'history':[]
     }
     await sio.emit('bot-response', {'response': "👋 Welcome to CIET Assistant! What's your name?"}, to=sid)
 
@@ -71,9 +72,15 @@ async def chat_message(sid, data):
     if not user_message:
         return
 
+    # Ensure user context exists
     user_data = user_contexts.get(sid)
     if not user_data:
-        user_data = {'context': AssistantContext(), 'last_message_time': datetime.min}
+        user_data = {
+            'context': AssistantContext(),
+            'last_message_time': datetime.min,
+            'ip': 'Unknown',
+            'history': []
+        }
         user_contexts[sid] = user_data
 
     now = datetime.utcnow()
@@ -83,23 +90,62 @@ async def chat_message(sid, data):
         return
 
     user_data['last_message_time'] = now
+
+    # --- Context Setup ---
+    history = user_data.get('history', [])
+
+    # Add user message to history
+    history.append(user_message)
+
+    # 🧹 Optional Enhancement: Limit history to last 10 turns (user + bot)
+    if len(history) > 10:
+        history = history[-10:]
+
+    # Reset context and assign query + history
     ctx = user_data['context']
     ctx.reset()
     ctx.user_query = user_message
+    ctx.history = history
 
     await sio.emit('bot-typing', True, to=sid)
 
     try:
-        ctx.selected_tables = find_tables(ctx.user_query, ALL_TABLES)
-        if not ctx.selected_tables:
-            response = "Could not identify relevant tables for your query. Please try rephrasing."
+        intent = detect_intent(user_message)
+
+        if intent == "college":
+            ctx.selected_tables = find_tables(ctx.user_query, ALL_TABLES)
+
+            if not ctx.selected_tables:
+                response = "Could not identify relevant tables for your query. Please try rephrasing."
+            else:
+                loop = asyncio.get_running_loop()
+                response = await loop.run_in_executor(None, try_generate_and_execute, ctx, DB_PATH)
         else:
-            loop = asyncio.get_running_loop()
-            response = await loop.run_in_executor(None, try_generate_and_execute, ctx, DB_PATH)
+            messages = [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a professional and knowledgeable assistant for college Chalapathi Institute of Engineering and Technology (CIET) trained to help students with general questions "
+                        "related to programming, IT companies, career paths, skill development, and technology. "
+                        "Answer clearly, concisely, and formally. Avoid emojis and casual phrases. "
+                        "Always aim to educate or guide respectfully."
+                    )
+                },
+                {"role": "user", "content": user_message}
+            ]
+
+            resp = client.chat.complete(model=MODEL, messages=messages, max_tokens=800, temperature=0.7)
+            response = resp.choices[0].message.content.strip()
+
     except Exception as e:
         response = f"Error processing your query: {e}"
 
+    # Add bot response to history and update the user context
+    history.append(response)
+    user_data['history'] = history
+
     await sio.emit('bot-response', {'response': response}, to=sid)
     await sio.emit('bot-typing', False, to=sid)
+
 
 # uvicorn main:socket_app --host 0.0.0.0 --port 3001 --reload

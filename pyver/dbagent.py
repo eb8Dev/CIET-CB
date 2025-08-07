@@ -8,7 +8,8 @@ from prompt_templates import (
     get_table_selection_prompt,
     get_sql_generation_prompt,
     get_no_result_prompt,
-    get_result_summary_prompt
+    get_result_summary_prompt,
+    get_intent_prompt,
 )
 
 logging.basicConfig(
@@ -197,57 +198,68 @@ def try_generate_and_execute(ctx: AssistantContext, db_path: str, max_retries: i
         "You may want to rephrase your question or contact support for further help."
     )
 
+def detect_intent(user_query: str) -> str:
+    from mistral_helper import client, MODEL
+    messages = get_intent_prompt(user_query)
+    response = client.chat.complete(
+        model=MODEL,
+        messages=messages,
+        max_tokens=5,
+        temperature=0.0
+    )
+    result = response.choices[0].message.content.strip().lower()
+    return result if result in ["college", "general"] else "college"  # fallback
 
-if __name__ == "__main__":
-    DB_PATH = "college_data.db"
-    ALL_TABLES = get_all_tables(DB_PATH)
-    ctx = AssistantContext()
+# if __name__ == "__main__":
+#     DB_PATH = "college_data.db"
+#     ALL_TABLES = get_all_tables(DB_PATH)
+#     ctx = AssistantContext()
 
-    print("🤖 SQL Assistant with multi-table join and interactive refinement is ready.\n")
+#     print("🤖 SQL Assistant with multi-table join and interactive refinement is ready.\n")
 
-    while True:
-        if not ctx.history:
-            user_input = input("🔍 Ask a question (or type 'exit'): ").strip()
-            if user_input.lower() in ["exit", "quit"]:
-                print("👋 Exiting. Goodbye!")
-                break
-            ctx.reset()
-            ctx.user_query = user_input
-            ctx.history.append(user_input)
-        else:
-            print("\nWould you like to refine the previous query or ask a follow-up? (yes/no)")
-            choice = input().strip().lower()
-            if choice in ["no", "n", "exit", "quit"]:
-                print("👋 Exiting. Goodbye!")
-                break
-            elif choice in ["yes", "y"]:
-                refinement = input("Please enter your refinement or follow-up query:\n").strip()
-                if not refinement:
-                    print("No input detected, exiting.")
-                    break
-                ctx.user_query = refinement
-                ctx.history.append(refinement)
-            else:
-                print("Please answer 'yes' or 'no'.")
-                continue
+#     while True:
+#         if not ctx.history:
+#             user_input = input("🔍 Ask a question (or type 'exit'): ").strip()
+#             if user_input.lower() in ["exit", "quit"]:
+#                 print("👋 Exiting. Goodbye!")
+#                 break
+#             ctx.reset()
+#             ctx.user_query = user_input
+#             ctx.history.append(user_input)
+#         else:
+#             print("\nWould you like to refine the previous query or ask a follow-up? (yes/no)")
+#             choice = input().strip().lower()
+#             if choice in ["no", "n", "exit", "quit"]:
+#                 print("👋 Exiting. Goodbye!")
+#                 break
+#             elif choice in ["yes", "y"]:
+#                 refinement = input("Please enter your refinement or follow-up query:\n").strip()
+#                 if not refinement:
+#                     print("No input detected, exiting.")
+#                     break
+#                 ctx.user_query = refinement
+#                 ctx.history.append(refinement)
+#             else:
+#                 print("Please answer 'yes' or 'no'.")
+#                 continue
 
-        try:
-            ctx.selected_tables = find_tables(ctx.user_query, ALL_TABLES)
-            if not ctx.selected_tables:
-                print(
-                "⚠️ I couldn't quite figure out which data to use for your question.\n"
-                 "You might try rephrasing it. If the issue persists, feel free to contact support."
-                )   
-                continue
+#         try:
+#             ctx.selected_tables = find_tables(ctx.user_query, ALL_TABLES)
+#             if not ctx.selected_tables:
+#                 print(
+#                 "⚠️ I couldn't quite figure out which data to use for your question.\n"
+#                  "You might try rephrasing it. If the issue persists, feel free to contact support."
+#                 )   
+#                 continue
 
-            print(f"📌 Tables selected: {ctx.selected_tables}")
-        except Exception as e:
-            print(
-                "⚠️ We encountered a slight issue trying to understand your request.\n"
-                "Please try rephrasing it, or contact the support team if the issue keeps happening."
-            )
+#             print(f"📌 Tables selected: {ctx.selected_tables}")
+#         except Exception as e:
+#             print(
+#                 "⚠️ We encountered a slight issue trying to understand your request.\n"
+#                 "Please try rephrasing it, or contact the support team if the issue keeps happening."
+#             )
 
-            continue
+#             continue
 
-        result = try_generate_and_execute(ctx, DB_PATH)
-        print(f"\n💬 Answer:\n{result}\n")
+#         result = try_generate_and_execute(ctx, DB_PATH)
+#         print(f"\n💬 Answer:\n{result}\n")

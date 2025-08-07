@@ -21,6 +21,29 @@
 #         }
 #     ]
 
+def get_intent_prompt(user_query: str) -> list:
+    return [
+        {
+            "role": "system",
+            "content": (
+                "You are an intent classification assistant. Your task is to decide whether the user's question is "
+                "about Chalapathi Institute of Engineering and Technology (CIET) - such as its departments, placements, "
+                "fees, hostel, transport, or faculty - or if it's a general technical/career-related question."
+            )
+        },
+        {
+            "role": "user",
+            "content": (
+                f"Query: \"{user_query}\"\n\n"
+                "Classify the intent as one of the following:\n"
+                "- college\n"
+                "- general\n\n"
+                "Respond with only one word: college or general."
+            )
+        }
+    ]
+
+
 def get_table_selection_prompt(user_query: str, available_tables: list) -> list:
     return [
         {
@@ -135,6 +158,8 @@ def get_result_summary_prompt(user_query: str, col_names: list, rows: list, gene
                 "Present the answer clearly, respectfully, and with institutional tone.\n"
                 "- Use full names and titles when applicable.\n"
                 "- Avoid emojis, jokes, or casual remarks.\n"
+                "- If fee structure is in the response, for the management quota, don't show directly the price, instead show as x times more than convener quota."
+                "- if convener quota is 43,000 and management is 1,29,000. show management quota =  3 times of convener quota instead of management quota = 1,29,00"
                 "- If any emails or phone numbers are in the results, mask them (eg: +91 92******10, b***u@gmail.com)"
                 "- If the result is a list, present it with clarity and formality.\n"
                 "- Always assume this is for public display on an official college platform."
